@@ -64,7 +64,7 @@ concordance=TRUE
 
 %------------------------------------------------------------
 \title{Using R as a Research Tool.\\
-Part 2: Basic statistics and report writing.}
+Part 2: R Markdown and basic statistics.}
 %------------------------------------------------------------
 \author{Dr Susan Johnston: \href{mailto:Susan.Johnston@ed.ac.uk}{Susan.Johnston@ed.ac.uk}  \\ \\
         Demonstrators: Gergana Daskalova, John Godlee. \\
@@ -79,6 +79,8 @@ library(knitr)
 opts_chunk$set(
 highlight=TRUE, tidy=TRUE, keep.space=TRUE, keep.blank.space=FALSE, keep.comment=TRUE, fig = TRUE
 )
+
+
 @
 
 
@@ -88,6 +90,8 @@ opts_chunk$set(
 fig.path='Fig'
 )
 @
+
+
 
 
 
@@ -104,42 +108,210 @@ This practical will follow on from the previous practical in data manipulation a
 
 \begin{itemize}
 
-\item Create data visualisations for statistical tests.
-\item Carry out basic statistics, including:
+\item Write, embed and render code and results into an HTML document.
+
+\item Carry out basic statistics and visualisations, including:
 
 \begin{itemize}
 
 \item Linear regression with \code{lm()}
-\item 2-sample t-test with \code{t.test()}
 \item Chi-squared test with \code{chisq.test()}
+\item 2-sample t-test with \code{t.test()}
+
 
 \end{itemize}
 
-\item Write, embed and render code and results into an HTML document.
-
 \end{itemize}
 
 
+%The statistics in this practical are based on the data presented in the book ``Getting Started with R'' (2nd Edition, 2017) by Beckerman, Childs and Petchey (\url{http://www.r4all.org})
 
 
 %-------------------------------------------
-\section {The basics of R Markdown.}
+\section {Writing reports with R Markdown.}
 %-------------------------------------------
 
-\boldblue{R} Markdown is a tool for writing, reproducible reports in \boldblue{R}. It can be used to produce documents with embedded code and figures in HTML, Word and PDF format, and can also be used to create webpages and slideshows.
+
+\boldblue{R} Markdown is a tool for writing, reproducible reports in \boldblue{R}. It can be used to produce documents with embedded code and figures in HTML, Word and PDF format, and can also be used to create webpages and slideshows. The current version of the \boldblue{R} Markdown Cheatsheet from RStudio has been attached to these course notes.
 
 \subsection{Creating an R Markdown Document.}
 
-Create a new document by going to \textbf{File > New File > R Markdown...}. In the window, name your document, select \textbf{HTML} and click \textbf{OK}. RStudio should automatically create a template as in Figure \ref{fig:MarkdownTemplate} (if not - it is saved in the file \texttt{R\_Markdown\_Template.Rmd)}. To render the document, click the button that says \textbf{Knit}. You may have to save it first. As you can see, it produces a formatted HTML document with embedded figures.
+Open RStudio and create a new markdown document by going to \textbf{File > New File > R Markdown...}. In the window, name your document, select \textbf{HTML} and click \textbf{OK}. RStudio should automatically create a template as in Figure \ref{fig:MarkdownTemplate} (if not - it is saved in the file \texttt{R\_Markdown\_Template.Rmd)}. \\
+
+To render the document, click the button that says \textbf{Knit} (you may have to save it first). As you can see, it produces a formatted HTML document with embedded figures. \\
+
+Another thing to note is the \textbf{Show document outline} in the top right corner of the window, which shows the document structure.
 
 \begin{figure}[h]
 	\centering 
-	\includegraphics[width=1\textwidth]{figs/MarkdownTemplate.JPG}
+	\includegraphics[width=0.9\textwidth]{figs/MarkdownTemplate.JPG}
 	\caption{R Markdown Template.}
 	\label{fig:MarkdownTemplate}
 \end{figure} 
 
+\subsection{Formatting an R Markdown Document.}
 
+It is possible to carry out basic formatting, tables, headers, as well as adding tables, lists and external figures. See Part 3 of the \boldblue{R} Markdown CheatSheet from RStudio, which is attached to the back of this document. \\
+
+\fbox{\begin{minipage}{36em}
+\Large{\textbf{Exercise 1.}}
+
+\normalsize
+1. Create a new \boldblue{R} Markdown Script with the following header:\\
+
+
+\texttt{---}\\
+\texttt{title:} ``\texttt{Introduction to Statistics in R}''\\
+\texttt{author:} ``\texttt{Your Name}''\\
+\texttt{date:} ``\texttt{28 November 2017}'' \\
+\texttt{output: html\_document} \\
+\texttt{---} \\
+
+
+Add some text to it and familiarise yourself with how to make \textit{italic}, \textbf{bold} and superscript text. Add headers for ``Introduction'', ``Linear regression'', ``Chi-squared test'' and ``Two-sample t-test``..
+\end{minipage}}
+
+
+\subsection{Embedding code in R Markdown.}
+
+Code can be embedded into the document in two ways: \\
+
+\textbf{Code Chunks:}
+\begin{shaded}
+\begin{verbatim}
+```{r}
+head(iris)
+```
+\end{verbatim}
+\end{shaded}
+
+Code chunks can be named, e.g. \verb!```{r iris}! \\
+
+\textbf{Inline code:}
+\begin{shaded}
+\begin{verbatim}
+Two plus two equals `r 2 + 2`.
+\end{verbatim}
+\end{shaded}
+
+Which will print ``Two plus two equals 4.''. \\
+
+There are also a number of display options for each chunk in section 5 of the cheat sheet. For example, 
+
+\begin{shaded}
+\begin{verbatim}
+```{r echo = F, results = "hide", fig.width = 4, fig.height = 3}
+head(iris)
+
+library(ggplot2)
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
+```
+\end{verbatim}
+\end{shaded}
+
+will show the code output and the figure (dimensions specified with \texttt{fig.width} and \texttt{fig.height}), but not the code itself (\texttt{echo = F}) or the console output (i.e. \texttt{head(iris)}; \texttt{results = "hide"}). \\
+
+\subsection{Points to note.}
+
+\begin{itemize}
+\item Rendering the document with \textbf{Knit}, that R is opening and creating a new working environment. Each code chunk that is run is saved in the workspace - therefore, libraries and new objects created in a chunk will remain in the workspace for all subsequent chunks. 
+
+\item It's good to put a chunk at the start loading the libraries and data.
+
+\item Code in \boldblue{R} Markdown chunks can be run in the console as in the previous practical. The default option is to show the code output inline in the document. Some people like this, others don't: to switch this function on and off, go to \textbf{Global options > R Markdown >Show output inline for all Markdown documents} and select your preferred setup. 
+
+\item \boldblue{R} Markdown documents are not flexible to errors - the code must be error free, or it will not render. 
+
+\item Want to learn more? More detailed information on this can be found at the Coding Club tutorial at \url{https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html}.
+
+\end{itemize}
+
+
+\fbox{\begin{minipage}{36em}
+
+For the rest of the practical, it is expected that you create an R Markdown document that contains text, code, graphs and inline reporting of results.
+\end{minipage}}
+
+\section{Basic statistics.}
+
+Question > visualisation > statistic > render
+
+\section{\chi$^{2}$ contingency table}
+
+A $\chi ^{2}$ contingency table analyses count data, and looks at the association between two or more categorical variables. In this example, we will examine the differences in the frequency of red and black ladybirds (\textit{Adalia bipunctata}) in rural and industrial habitats. Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds? The null hypothesis is that there is no association between ladybird colour morph and habitat type. \\
+
+Load the data file \texttt{ladybirds.csv} into R using \code{read.csv()} and examine it using \code{glipse()} from the \code{dplyr} package.\\
+
+\begin{shaded}
+\begin{verbatim}
+library(dplyr)
+
+ladybirds <- read.csv("data/ladybirds.csv", header = T)
+glimpse(ladybirds)
+\end{verbatim}
+\end{shaded}
+
+<<echo = F>>=
+library(dplyr)
+
+ladybirds <- read.csv("../data/ladybirds.csv", header = T)
+glimpse(ladybirds)
+@
+
+There are multiple lines for each category, with the column number giving the count details. We ultimately want four numbers, corresponding to the 2 $\times$ 2 categories: red industrial, black industrial, red rural and black rural. \\
+
+This can be done using the \code{dplyr} functions \code{group\_by} amd \code{summarise()}.
+
+\begin{shaded}
+<<>>=
+totals <- group_by(ladybirds, Habitat, morph_colour)
+totals <- summarise(totals, total.number = sum(number))
+totals
+@
+\end{shaded}
+
+
+\subsection{Plot the data}
+
+One visualisation for this type of data is a bar chart using \code{geom\_col()} in \code{ggplot2}.
+
+
+\begin{shaded}
+<<eval = F>>=
+library(ggplot2)
+
+ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
+  geom_col() 
+@
+\end{shaded}
+
+There are two edits we can make to this to improve the visualisation: to add \code{geom\_col(position = "dodge")} to place bars side by side, and also by changing the colours of the bars to black and red to match the colour of the morphs in real life (using \code{scale\_fill\_manual()}):
+
+<<echo = F>>=
+library(ggplot2)
+@
+
+\begin{shaded}
+<<fig = T>>=
+ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c(black = "black", red = "red"))
+@
+\end{shaded}
+
+\subsection{Run the test with \code{chisq.test}.}
+
+<<>>=
+lady.mat <- xtabs(number ~ Habitat + morph_colour, data = ladybirds)
+
+lady.chisq <- chisq.test(lady.mat)
+names(lady.chisq)
+
+lady.chisq$statistic
+lady.chisq$p.value
+
+
+@
 
 
 

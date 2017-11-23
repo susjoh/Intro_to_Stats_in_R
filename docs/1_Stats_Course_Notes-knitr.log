@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.17)  21 NOV 2017 21:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.17)  23 NOV 2017 00:23
 entering extended mode
 **./1_Stats_Course_Notes-knitr.tex
 (1_Stats_Course_Notes-knitr.tex
@@ -499,43 +499,36 @@ LaTeX Info: Redefining \nameref on input line 52.
 \c@mv@boldtabular=\count122
 
 (1_Stats_Course_Notes-knitr-concordance.tex)
-LaTeX Font Info:    Try loading font information for U+msa on input line 77.
+LaTeX Font Info:    Try loading font information for U+msa on input line 79.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 77.
+LaTeX Font Info:    Try loading font information for U+msb on input line 79.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for TS1+zgmx on input line 90.
+LaTeX Font Info:    Try loading font information for TS1+zgmx on input line 92.
 
 
 (C:\Users\sjohns10\AppData\Roaming\MiKTeX\2.9\tex\latex\garamondx\ts1zgmx.fd
 File: ts1zgmx.fd 2012/11/16 Fontinst v1.933 font definitions for TS1/zgmx.
 )
-LaTeX Font Info:    Try loading font information for T1+aett on input line 95.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 98.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (14.13368pt too wide) in paragraph at lines 116--117
-\T1/zgmx/m/n/12 tem-plate as in Fig-ure []1[]. Don't worry if not - it is saved
- in the file R_Markdown_Template.Rmd.
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
  []
 
-<figs/MarkdownTemplate.JPG, id=18, 712.16063pt x 450.18187pt>
-File: figs/MarkdownTemplate.JPG Graphic file (type jpg)
 
-<use figs/MarkdownTemplate.JPG>
-Package pdftex.def Info: figs/MarkdownTemplate.JPG used on input line 120.
-(pdftex.def)             Requested size: 448.07378pt x 283.23827pt.
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 129.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
@@ -543,37 +536,201 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 [1
 
 {C:/Users/sjohns10/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<figs/MarkdownTemplate.JPG, id=56, 712.16063pt x 450.18187pt>
+File: figs/MarkdownTemplate.JPG Graphic file (type jpg)
+
+<use figs/MarkdownTemplate.JPG>
+Package pdftex.def Info: figs/MarkdownTemplate.JPG used on input line 128.
+(pdftex.def)             Requested size: 403.26366pt x 254.9165pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
+
+ []
+
+
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [2 <./figs/MarkdownTemplate.JPG>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 129.
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+LaTeX Font Info:    Try loading font information for TS1+aett on input line 166
+.
+(C:/PROGRA~1/R/R-33~1.2/share/texmf/tex/latex\ts1aett.fd
+File: ts1aett.fd 
+)
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 166
+.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmtt.fd"
+File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `TS1/aett/m/n' in size <12> not available
+(Font)              Font shape `TS1/cmtt/m/n' tried instead on input line 166.
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+
+ []
+
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[3]
+Overfull \hbox (28.99693pt too wide) in paragraph at lines 193--194
+[]\T1/zgmx/m/n/12 will show the code out-put and the fig-ure (di-men-sions spec
+-i-fied with \T1/aett/m/n/12 fig.width \T1/zgmx/m/n/12 and \T1/aett/m/n/12 fig.
+height\T1/zgmx/m/n/12 ),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+
+ []
+
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[4]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.220 \section{\chi$^{2}$ contingency table}
+                                            
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.220 \section{\chi$^{2}$ contingency table}
+                                            
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\chi' on input line 220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 220.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 220.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[5]
+Overfull \hbox (23.46498pt too wide) in paragraph at lines 286--287
+[]\T1/zgmx/m/n/12 There are two ed-its we can make to this to im-prove the vi-s
+u-al-i-sa-tion: to add []\T1/aett/m/n/12 geom_col(position
+ []
+
+<1_Stats_Course_Notes-knitr-008.pdf, id=82, 433.62pt x 433.62pt>
+File: 1_Stats_Course_Notes-knitr-008.pdf Graphic file (type pdf)
+
+<use 1_Stats_Course_Notes-knitr-008.pdf>
+Package pdftex.def Info: 1_Stats_Course_Notes-knitr-008.pdf used on input line 
+297.
+(pdftex.def)             Requested size: 358.46039pt x 358.47534pt.
+
+Underfull \vbox (badness 2790) detected at line 298
+ []
+
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[6]
+
+LaTeX Font Warning: Font shape `T1/aett/b/n' undefined
+(Font)              using `T1/aett/m/n' instead on input line 300.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
+
+Overfull \vbox (21.68121pt too high) has occurred while \output is active []
+
+
+[7 <./1_Stats_Course_Notes-knitr-008.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
  (1_Stats_Course_Notes-knitr.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 129.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 129.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
 Package rerunfilecheck Info: File `1_Stats_Course_Notes-knitr.out' has not chan
 ged.
-(rerunfilecheck)             Checksum: 221760A2C97C58E9E66D522AA70D0767;191.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 129.
+(rerunfilecheck)             Checksum: B8915E2537233B801E61938B473D1077;677.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 305.
  ) 
 Here is how much of TeX's memory you used:
- 8315 strings out of 493333
- 119965 string characters out of 3139184
+ 8411 strings out of 493333
+ 121610 string characters out of 3139184
  211086 words of memory out of 3000000
- 11694 multiletter control sequences out of 15000+200000
- 49525 words of font info for 54 fonts, out of 3000000 for 9000
+ 11753 multiletter control sequences out of 15000+200000
+ 63157 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,6n,35p,1000b,349s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/garamondx/swash
-Q.enc}{C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/garamondx/z
-gm_ts1.enc}{C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/garamo
-ndx/zgmt1.enc}<C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/
-garamondx/NewG8-Bol.pfb><C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/typ
-e1/public/garamondx/NewG8-Reg.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmtt12.pfb>
-Output written on 1_Stats_Course_Notes-knitr.pdf (2 pages, 153216 bytes).
+ 35i,6n,35p,1000b,374s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\sjohns10\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
+00\tctt1200.pk>{C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/ga
+ramondx/zgmt1.enc}{C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips
+/garamondx/swashQ.enc}{C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/enc/d
+vips/garamondx/zgm_ts1.enc}<C:/Users/sjohns10/AppData/Roaming/MiKTeX/2.9/fonts/
+type1/public/garamondx/NewG8-Bol.pfb><C:/Users/sjohns10/AppData/Roaming/MiKTeX/
+2.9/fonts/type1/public/garamondx/NewG8-Ita.pfb><C:/Users/sjohns10/AppData/Roami
+ng/MiKTeX/2.9/fonts/type1/public/garamondx/NewG8-Reg.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsltt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmt
+t12.pfb>
+Output written on 1_Stats_Course_Notes-knitr.pdf (7 pages, 294384 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 500000)
- 34 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 
