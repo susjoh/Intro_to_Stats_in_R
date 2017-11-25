@@ -8,6 +8,8 @@
 \usepackage{garamondx}
 \usepackage{framed}  %This is to use the shaded environment
 \usepackage{titlesec}
+\usepackage{upquote}
+
 
 
 \titlespacing*{\section}
@@ -124,8 +126,6 @@ This practical will follow on from the previous practical in data manipulation a
 \end{itemize}
 
 
-%The statistics in this practical are based on the data presented in the book ``Getting Started with R'' (2nd Edition, 2017) by Beckerman, Childs and Petchey (\url{http://www.r4all.org})
-
 
 %-------------------------------------------
 \section {Writing reports with R Markdown.}
@@ -232,15 +232,20 @@ will show the code output and the figure (dimensions specified with \texttt{fig.
 For the rest of the practical, it is expected that you create an R Markdown document that contains text, code, graphs and inline reporting of results.
 \end{minipage}}
 
+
+%-------------------------------------------
 \section{Basic statistics.}
+%-------------------------------------------
 
 Question > visualisation > statistic > render
 
-\section{\chi$^{2}$ contingency table}
+%-------------------------------------------
+\section{$\chi^{2}$ contingency table}
+%-------------------------------------------
 
-A $\chi ^{2}$ contingency table analyses count data, and looks at the association between two or more categorical variables. In this example, we will examine the differences in the frequency of red and black ladybirds (\textit{Adalia bipunctata}) in rural and industrial habitats. Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds? The null hypothesis is that there is no association between ladybird colour morph and habitat type. \\
+A $\chi ^{2}$ contingency table analyses count data, and looks at the association between two or more categorical variables. In this example, we will examine the differences in the frequency of red and black ladybirds (\textit{Adalia bipunctata}) in rural and industrial habitats. Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds? The null hypothesis is that there is no association between ladybird colour morph and habitat type \footnote{The approach and dataset here is based on the example presented in the book ``Getting Started with R'' (2nd Edition, 2017) by Beckerman, Childs and Petchey (\url{http://www.r4all.org})}}. \\
 
-Load the data file \texttt{ladybirds.csv} into R using \code{read.csv()} and examine it using \code{glipse()} from the \code{dplyr} package.\\
+Load the data file \texttt{ladybirds.csv} into R using \code{read.csv()} and examine it using \code{glimpse()} from the \code{dplyr} package.\\
 
 \begin{shaded}
 \begin{verbatim}
@@ -260,7 +265,7 @@ glimpse(ladybirds)
 
 There are multiple lines for each category, with the column number giving the count details. We ultimately want four numbers, corresponding to the 2 $\times$ 2 categories: red industrial, black industrial, red rural and black rural. \\
 
-This can be done using the \code{dplyr} functions \code{group\_by} amd \code{summarise()}.
+This can be done using the \code{dplyr} functions \code{group\_by()} amd \code{summarise()}.
 
 \begin{shaded}
 <<>>=
@@ -299,19 +304,86 @@ ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
 @
 \end{shaded}
 
-\subsection{Run the test with \code{chisq.test}.}
+\subsection{Test the hypothesis with \code{chisq.test()}.}
 
+The $\chi^{2}$ is run using the function \code{chisq.test()}. As this is a 2 $\times$ 2 contingency test, we must convert the data into a matrix. Looking at the data \code{ladybirds}, a matrix can be made using the function \code{xtabs()}, which is similar to creating pivot table cross-tabulation in Excel:
+
+\begin{shaded}
 <<>>=
 lady.mat <- xtabs(number ~ Habitat + morph_colour, data = ladybirds)
+lady.mat
+@
+\end{shaded}
 
+Now run the test:
+
+\begin{shaded}
+<<>>=
+chisq.test(lady.mat)
+@
+\end{shaded}
+
+
+This provides a statistic indivating that there is a very small probability that the observed pattern arose by chance. Therefore, we can reject the null hypothesis.
+
+We can extract more information from the statistic if we save the \code{chisq.test(ladymat)} as an object:
+
+\begin{shaded}
+<<>>=
 lady.chisq <- chisq.test(lady.mat)
+@
+\end{shaded}
+
+Running \code{lady.chisq} gives the same output as before, but we can explore the object in detail using the \code{\$} notation:
+
+\begin{shaded}
+<<>>=
 names(lady.chisq)
+str(lady.chisq)
 
 lady.chisq$statistic
 lady.chisq$p.value
+@
+\end{shaded}
 
+In the \boldblue{R} Markdown document, it is possible to quote statistics inline using the \verb!`r`! notation e.g. \verb!`r lady.chisq$statistic`! and \verb!`r lady.chisq$p.value`! will print the $\chi^{2}$ statistic and P value inline, respectively. \\
+
+
+\fbox{\begin{minipage}{36em}
+\Large{\textbf{Exercise 2.}}\\
+
+\normalsize 
+Create a short report in the \boldblue{R} Markdown document with an inline report of the test statistics and P-value. This can be done as follows:
+\begin{enumerate}
+\item Run a code chunk for loading and manipulating the ladybird data, and running the $\chi^{2}$ test that does not print the code or results to the compiled document (hint: define \code{echo} and \code{results} in the chunk options).
+\item Write a few lines of text stating the hypothesis, the test statistic and interpretation. E.g. \textit{The null hypothesis is... Ladybird morphs are not equally distributed in the two habitats (Chi squared = ..., df = ..., P = ...), with black morphs being more frequent in.... (Figure 1)}
+\item Run another code chunk to create a barplot for Figure 1.
+\end{enumerate}
+
+\end{minipage}}
+
+%-------------------------------------------
+\section{Two-sample t-test.}
+%-------------------------------------------
+
+<<>>=
+sepals <- read.csv("../data/iris.edited.csv", header = T)
+str(sepals)
+
+ggplot(sepals, aes(Species, Sepal.Length)) + geom_boxplot()
+
+ggplot(sepals, aes(Sepal.Length)) + 
+  geom_histogram(binwidth = 0.2) + 
+  facet_wrap(~Species, ncol = 1)
+
+t.test(Sepal.Length ~ Species, data = sepals)
 
 @
+
+%-------------------------------------------
+\section{Linear regression.}
+%-------------------------------------------
+
 
 
 

@@ -22,11 +22,50 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 ```
 
 
-## Linear Regression
-
 
 
 ## Chi-squared test
+
+Here we examine the differences in the frequency of red and black ladybirds (\textit{Adalia bipunctata}) in rural and industrial habitats. Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds? The null hypothesis is that there is no association between ladybird colour morph and habitat type.
+
+```{r echo = F, results = "hide", message=F}
+library(dplyr)
+library(ggplot2)
+
+ladybirds <- read.csv("data/ladybirds.csv", header = T)
+glimpse(ladybirds)
+
+totals <- group_by(ladybirds, Habitat, morph_colour)
+totals <- summarise(totals, total.number = sum(number))
+totals
+
+lady.mat <- xtabs(number ~ Habitat + morph_colour, data = ladybirds)
+lady.mat
+
+chisq.test(lady.mat)
+
+lady.chisq <- chisq.test(lady.mat)
+
+names(lady.chisq)
+str(lady.chisq)
+
+lady.chisq$statistic
+lady.chisq$p.value
+
+```
+
+Ladybird colour morphs were not equally distributed in the two habitats (Chi-Squared = `r lady.chisq$statistic`, df = `r lady.chisq$parameter`, P = `r lady.chisq$p.value`), with black morphs occurring more frequently in industrial habitats and red morphs more frequently in rural habitats (Figure 1).
+
+```{r echo = F}
+ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c(black = "black", red = "red"))
+
+```
+
+
+
+## Linear Regression
 
 
 
