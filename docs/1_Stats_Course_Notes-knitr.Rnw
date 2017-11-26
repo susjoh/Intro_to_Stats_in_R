@@ -324,9 +324,7 @@ chisq.test(lady.mat)
 \end{shaded}
 
 
-This provides a statistic indivating that there is a very small probability that the observed pattern arose by chance. Therefore, we can reject the null hypothesis.
-
-We can extract more information from the statistic if we save the \code{chisq.test(ladymat)} as an object:
+This provides a statistic indivating that there is a very small probability that the observed pattern arose by chance. Therefore, we can reject the null hypothesis. We can extract more information from the statistic if we save the \code{chisq.test(ladymat)} as an object:
 
 \begin{shaded}
 <<>>=
@@ -443,10 +441,10 @@ Therefore, given the output, we can reject the null hypothesis, and can conclude
 
 
 %-------------------------------------------
-\section{Linear regression.}
+\section{Simple Linear regression.}
 %-------------------------------------------
 
-The last model we will tackle 
+The last model we will tackle is a linear regression. This is the most basic of a class of models called `general linear models' which also includes multiple regression and ANOVA. 
 
 
 

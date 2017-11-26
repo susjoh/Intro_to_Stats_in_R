@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.17)  26 NOV 2017 01:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.17)  26 NOV 2017 01:42
 entering extended mode
 **./1_Stats_Course_Notes-knitr.tex
 (1_Stats_Course_Notes-knitr.tex
@@ -687,12 +687,12 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [7 <./1_Stats_Course_Notes-knitr-008.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
+Underfull \hbox (badness 10000) in paragraph at lines 380--381
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--396
+Underfull \hbox (badness 10000) in paragraph at lines 394--394
 
  []
 
@@ -701,7 +701,7 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 402--403
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
 
@@ -709,10 +709,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 402--403
 File: figs/Irisvirginica.jpg Graphic file (type jpg)
 
 <use figs/Irisvirginica.jpg>
-Package pdftex.def Info: figs/Irisvirginica.jpg used on input line 406.
+Package pdftex.def Info: figs/Irisvirginica.jpg used on input line 404.
 (pdftex.def)             Requested size: 224.03688pt x 182.23283pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--412
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
 
  []
 
@@ -728,14 +728,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.431 
+l.429 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--433
+Underfull \hbox (badness 10000) in paragraph at lines 430--431
 
  []
 
@@ -743,14 +743,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 432--433
 File: figs/boxplothist.png Graphic file (type png)
 
 <use figs/boxplothist.png>
-Package pdftex.def Info: figs/boxplothist.png used on input line 450.
+Package pdftex.def Info: figs/boxplothist.png used on input line 448.
 (pdftex.def)             Requested size: 448.07378pt x 210.04205pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 455--456
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 
  []
 
@@ -759,12 +759,12 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 492--492
+Underfull \hbox (badness 10000) in paragraph at lines 490--490
 
  []
 
@@ -773,24 +773,24 @@ Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [11 <./figs/boxplothist.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 501.
 
 Overfull \vbox (21.68121pt too high) has occurred while \output is active []
 
 
 [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 503.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 501.
  (1_Stats_Course_Notes-knitr.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 503.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 501.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 501.
 Package rerunfilecheck Info: File `1_Stats_Course_Notes-knitr.out' has not chan
 ged.
-(rerunfilecheck)             Checksum: E6DC2F5119973FC6A28A5B4B54F26DA2;744.
+(rerunfilecheck)             Checksum: 6A6FC9D4381F915B9ED48D4BB225F7EF;751.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 501.
  ) 
 Here is how much of TeX's memory you used:
  8464 strings out of 493333
@@ -815,7 +815,7 @@ msfonts/cm/cmsltt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmt
 t10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
 
-Output written on 1_Stats_Course_Notes-knitr.pdf (12 pages, 589280 bytes).
+Output written on 1_Stats_Course_Notes-knitr.pdf (12 pages, 589791 bytes).
 PDF statistics:
  187 PDF objects out of 1000 (max. 8388607)
  30 named destinations out of 1000 (max. 500000)
