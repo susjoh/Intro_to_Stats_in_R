@@ -132,7 +132,7 @@ This practical will follow on from the previous practical in data manipulation a
 %-------------------------------------------
 
 
-\boldblue{R} Markdown is a tool for writing, reproducible reports in \boldblue{R}. It can be used to produce documents with embedded code and figures in HTML, Word and PDF format, and can also be used to create webpages and slideshows. The current version of the \boldblue{R} Markdown Cheatsheet from RStudio has been attached to these course notes.
+\boldblue{R} Markdown is a tool for writing, reproducible reports in \boldblue{R}. It can be used to produce documents with embedded code and figures in HTML, Word and PDF format, and can also be used to create webpages and slideshows. The current version of the \boldblue{R} Markdown Cheatsheet from RStudio is included in the github repository \url{https://github.com/susjoh/Intro_to_Stats_in_R}.
 
 \subsection{Creating an R Markdown Document.}
 
@@ -229,21 +229,21 @@ will show the code output and the figure (dimensions specified with \texttt{fig.
 
 \fbox{\begin{minipage}{36em}
 
-For the rest of the practical, it is expected that you create an R Markdown document that contains text, code, graphs and inline reporting of results.
+\large{For the rest of the practical, it is expected that you create an R Markdown document that contains text, code, graphs and inline reporting of results.}
 \end{minipage}}
 
 
-%-------------------------------------------
-\section{Basic statistics.}
-%-------------------------------------------
-
-Question > visualisation > statistic > render
+% %-------------------------------------------
+% \section{Basic statistics.}
+% %-------------------------------------------
+% 
+% Question > visualisation > statistic > render
 
 %-------------------------------------------
 \section{$\chi^{2}$ contingency table}
 %-------------------------------------------
 
-A $\chi ^{2}$ contingency table analyses count data, and looks at the association between two or more categorical variables. In this example, we will examine the differences in the frequency of red and black ladybirds (\textit{Adalia bipunctata}) in rural and industrial habitats. Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds? The null hypothesis is that there is no association between ladybird colour morph and habitat type \footnote{The approach and dataset here is based on the example presented in the book ``Getting Started with R'' (2nd Edition, 2017) by Beckerman, Childs and Petchey (\url{http://www.r4all.org})}}. \\
+A $\chi ^{2}$ contingency table analyses count data, and looks at the association between two or more categorical variables. In this example, we will examine the differences in the frequency of red and black ladybirds (\textit{Adalia bipunctata}) in rural and industrial habitats. Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds? The null hypothesis is that there is no association between ladybird colour morph and habitat type \footnote{The approach and dataset here is based on the example presented in the book ``Getting Started with R'' (2nd Edition, 2017) by Beckerman, Childs and Petchey (\url{http://www.r4all.org})}. \\
 
 Load the data file \texttt{ladybirds.csv} into R using \code{read.csv()} and examine it using \code{glimpse()} from the \code{dplyr} package.\\
 
@@ -297,7 +297,7 @@ library(ggplot2)
 @
 
 \begin{shaded}
-<<fig = T>>=
+<<fig = T, height = 4>>=
 ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
   geom_col(position = "dodge") +
   scale_fill_manual(values = c(black = "black", red = "red"))
@@ -339,7 +339,7 @@ Running \code{lady.chisq} gives the same output as before, but we can explore th
 \begin{shaded}
 <<>>=
 names(lady.chisq)
-str(lady.chisq)
+# str(lady.chisq) # not run here to save space - please run it!
 
 lady.chisq$statistic
 lady.chisq$p.value
@@ -366,24 +366,87 @@ Create a short report in the \boldblue{R} Markdown document with an inline repor
 \section{Two-sample t-test.}
 %-------------------------------------------
 
-<<>>=
+A two-sample t-test is one of the most simple and commonly used hypothesis tests. It determines whether the mean of two groups of numeric values are significantly different or due to random chance. Here, we will test whether the sepal length differs between two \textit{Iris} species, \textit{I. virginica} and \textit{I. versicolor} (Figure \ref{fig:IrisVirginica}). \\
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{figs/Irisvirginica.jpg}
+	\caption{\textit{Iris virginica.}}
+	\label{fig:IrisVirginica}
+\end{figure} 
+
+This test makes two assumptions about the data - that both groups are normally distributed and that the variances are equal in each category. \\
+
+First, load the data:
+
+\begin{shaded}
+\begin{verbatim}
 sepals <- read.csv("../data/iris.edited.csv", header = T)
 str(sepals)
+\end{verbatim}
+
+
+<<echo = F>>=
+sepals <- read.csv("../data/iris.edited.csv", header = T)
+str(sepals)
+@
+\end{shaded}
+{ }\\
+
+The first step is to create a figure, as it is important to visualise the data before analysing it. One approach is to use a boxplot, which is more visually appealing (but based on the median rather than the mean) - another is to use histograms. These can help us to assess if the means seem different between the two categories, and if the data is normally distributed with a similar variance. It can also provide an inidication of whether the null hypothesis can be accepted or rejected. \\
+
+\begin{shaded}
+\begin{verbatim}
+# boxplot
 
 ggplot(sepals, aes(Species, Sepal.Length)) + geom_boxplot()
 
+# histogram with facet_wrap
+
 ggplot(sepals, aes(Sepal.Length)) + 
-  geom_histogram(binwidth = 0.2) + 
+  geom_histogram(binwidth = 0.25) + 
   facet_wrap(~Species, ncol = 1)
+\end{verbatim}
+\end{shaded}
 
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\textwidth]{figs/boxplothist.png}
+	\label{fig:boxplothist}
+\end{figure} 
+
+
+To carry out the t-test, we will use the \code{t.test()} function. We can find out the details of the test using \code{?t.test} as before. The syntax requires a formula \code{Sepal.Length $\sim$ Species} and the data frame which contains the data \code{data = sepals}. This should reflect the hypothesis - how does sepal length vary as a function of species? \\
+
+
+\begin{shaded}
+<<>>=
 t.test(Sepal.Length ~ Species, data = sepals)
-
 @
+\end{shaded}
+
+The function has automatically used the Welch version of the t-test, which relaxes the assumption of equal variances - this is fine for the purposes of this practical (see Beckerman et al for a discussion of this in more detail). The output provides the \texttt{t}, \texttt{df} and \texttt{p-value} for the test, as well as the mean value in each of the two groups. The 95\% confidence interval shows the interval between the difference between the two means - if this overlapped 0, then we would retain the null hypothesis.\\
+
+Therefore, given the output, we can reject the null hypothesis, and can conclude that \textit{I. virginica} has longer sepals than \textit{I. versicolor}.
+
+
+\fbox{\begin{minipage}{36em}
+\Large{\textbf{Exercise 3.}}\\
+
+\normalsize 
+
+1. Create a short report in the \boldblue{R} Markdown document with an inline report as for Exercise 2.
+
+2. Use the CheatSheet (Hint: Section 3) to add the image of \textit{Iris virginica} to the Markdown document ("data/Irisvirginica.jpg")
+
+\end{minipage}}
+
 
 %-------------------------------------------
 \section{Linear regression.}
 %-------------------------------------------
 
+The last model we will tackle 
 
 
 
