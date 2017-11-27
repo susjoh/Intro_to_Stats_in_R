@@ -1,0 +1,35 @@
+---
+title: "Introduction to Statistics in R"
+author: "Susan Johnston"
+date: "21 November 2017"
+output: html_document
+---
+
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(ggplot2)
+library(dplyr)
+```
+
+```{r echo = F, results = "hide", fig.width = 4, fig.height = 3}
+
+data(iris)
+str(iris)
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
+```
+
+## Introduction
+
+
+## Chi-squared test
+
+
+
+## Two-sample t-test
+
+
+
+## Linear Regression
+
+
+
