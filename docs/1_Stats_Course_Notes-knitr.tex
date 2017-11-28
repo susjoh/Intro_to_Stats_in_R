@@ -82,7 +82,7 @@ Hat-Tips to Kyle Dexter, The Coding Club and R4all.}
 \section {Introduction}
 %-------------------------------------------
 
-This practical will follow on from the previous practical in data manipulation and visualisation, exploring how to write reports in \boldblue{R} Markdown and how to conduct simple statistical tests in \boldblue{R}. By the end of the practical, you should be able to:
+This practical will explore how to write reports in \boldblue{R} Markdown and how to conduct simple statistical tests in \boldblue{R}. By the end, you should be able to:
 
 \begin{itemize}
 
@@ -100,7 +100,7 @@ This practical will follow on from the previous practical in data manipulation a
 \end{itemize}
 
 \end{itemize}
-
+Data, code, answers and an \boldblue{R} Markdown Cheat Sheet is included in the github repository: \url{https://github.com/susjoh/Intro_to_Stats_in_R}.
 
 
 %-------------------------------------------
@@ -108,15 +108,15 @@ This practical will follow on from the previous practical in data manipulation a
 %-------------------------------------------
 
 
-\boldblue{R} Markdown is a tool for writing reproducible reports in \boldblue{R}. It can be used to produce documents with embedded code and figures in HTML, Word and PDF format, and can also be used to create webpages and slideshows. The  \boldblue{R} Markdown Cheatsheet from RStudio is included in the github repository \url{https://github.com/susjoh/Intro_to_Stats_in_R}.
+\boldblue{R} Markdown is a tool for writing reproducible reports in \boldblue{R}. It uses the \code{knitr} library by \href{https://yihui.name/knitr/}{Yihui Xie} to produce documents with embedded code and figures in HTML, Word and PDF format, and can also be used to create webpages and slideshows. 
 
-\subsection{Creating an R Markdown Document.}
+\subsection{Creating an \boldblue{R} Markdown Document.}
 
 Open RStudio and create a new markdown document by going to \textbf{File > New File > R Markdown...}. In the window, name your document, select \textbf{HTML} and click \textbf{OK}. RStudio should automatically create a template as in Figure \ref{fig:MarkdownTemplate} (if not - it is saved in the file \texttt{R\_Markdown\_Template.Rmd)}. \\
 
 To render the document, click the button that says \code{Knit} (you may have to save it first). As you can see, it produces a formatted HTML document with embedded figures that reflect the text and code within the markdown file. Take some time to familiarise yourself with how the script matches to the output. \\
 
-A convenient feature of \boldblue{R} Markdown in RStudio is the \textbf{Show document outline} in the top right corner of the window. For very long scripts, adding \verb!####! or \verb!----! to a comment line will include that comment in the document outline. Try it out. It is possible to carry out basic formatting as well as adding headings, tables, lists and external figures. See Part 3 of the \boldblue{R} Markdown CheatSheet. \\
+A convenient feature of \boldblue{R} Markdown in RStudio is the \textbf{Show document outline} in the top right corner of the window. For very long scripts, adding \verb!####! or \verb!----! to a comment line will include that comment in the document outline. Try it out. It is possible to carry out basic formatting as well as adding headings, tables, lists and external figures. See Part 3 of the \boldblue{R} Markdown Cheat Sheet, which is included in the github folder. \\
 
 \begin{figure}[h]
 \centering 
@@ -153,7 +153,7 @@ Code can be embedded into the document in two ways: \\
 \begin{shaded}
 \begin{verbatim}
 ```{r}
-head(iris)
+head(iris)   # this is a dataset included in base R
 ```
 \end{verbatim}
 \end{shaded}
@@ -226,7 +226,7 @@ The second option will hide the code (\texttt{echo = F}) and code output (\textt
 \begin{figure}[h]
 \centering 
 \includegraphics[width=1\textwidth]{figs/markdownrules.jpg}
-\caption{R Markdown Code Instrucutions.}
+\caption{R Markdown Code Instructions.}
 \label{fig:markdownrules}
 \end{figure} 
 
@@ -250,7 +250,7 @@ The second option will hide the code (\texttt{echo = F}) and code output (\textt
 \section{Basic statistics.}
 %-------------------------------------------
 
-\textbf{For the rest of the practical, it is expected that you create an R Markdown document that contains text, code, graphs and inline reporting of results.} We will approach this using the  approach of examining the data through visualisation, form our hypothesis, carry out the statistical test and then \code{Knit} this information into our document. \\
+\textbf{For the rest of the practical, it is expected that you create an \boldblue{R} Markdown document that contains text, code, graphs and inline reporting of results.} We will approach this using the  approach of examining the data through visualisation, form our hypothesis, carry out the statistical test and then \code{Knit} this information into our document. \\
 
 
 \begin{figure}[h]
@@ -269,7 +269,7 @@ In the interests of time, this practical will focus on the \textbf{how} rather t
 
 A $\chi ^{2}$ contingency table analyses count data, and looks at the association between two or more categorical variables. In this example, we will examine the differences in the frequency of red and black ladybirds (\textit{Adalia bipunctata}) in rural and industrial habitats. Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds? The null hypothesis is that there is no association between ladybird colour morph and habitat type \footnote{The approach and dataset here is based on the example presented in the book ``Getting Started with R'' (2nd Edition, 2017) by Beckerman, Childs and Petchey (\url{http://www.r4all.org})}. \\
 
-Load the data file \texttt{ladybirds.csv} into R using \code{read.csv()} and examine it using \code{glimpse()} from the \code{dplyr} package.
+Load the data file \texttt{ladybirds.csv} into \boldblue{R} using \code{read.csv()} and examine it using \code{glimpse()} from the \code{dplyr} package, or \code{head()} as before.
 
 \begin{shaded}
 \begin{verbatim}
@@ -278,8 +278,6 @@ library(dplyr)
 ladybirds <- read.csv("data/ladybirds.csv", header = T)
 glimpse(ladybirds)
 \end{verbatim}
-\end{shaded}
-
 \begin{Schunk}
 \begin{Soutput}
 Observations: 20
@@ -290,10 +288,11 @@ $ morph_colour <fctr> black, black, black, black, black, red, red, red, red...
 $ number       <int> 10, 3, 4, 7, 6, 15, 18, 9, 12, 16, 32, 25, 25, 17, 16,...
 \end{Soutput}
 \end{Schunk}
+\end{shaded}
 
 There are multiple lines for each category, with the column number giving the count details. We ultimately want four numbers, corresponding to the 2 $\times$ 2 categories: \underline{red industrial}, \underline{black industrial}, \underline{red rural} and \underline{black rural}. \\
 
-This can be done using the \code{dplyr} functions \code{group\_by()} amd \code{summarise()}.
+This can be done using the \code{dplyr} functions \code{group\_by()} and \code{summarise()}.
 
 \begin{shaded}
 \begin{Schunk}
@@ -344,6 +343,8 @@ There are two edits we can make to this to improve the visualisation: to add \co
 \includegraphics{1_Stats_Course_Notes-knitr-008}
 \end{shaded}
 
+Does it look like there is a trend here? What would you prediction be based on the figure?
+
 \subsection{Test the hypothesis with \code{chisq.test()}.}
 
 The $\chi^{2}$ is run using the function \code{chisq.test()}. As this is a 2 $\times$ 2 contingency test, we must convert the data into a matrix. Looking at the data \code{ladybirds}, a matrix can be made using the function \code{xtabs()}, which is similar to creating pivot table cross-tabulation in Excel:
@@ -380,7 +381,7 @@ X-squared = 19.103, df = 1, p-value = 1.239e-05
 \end{shaded}
 
 
-This provides a statistic indicating that there is a very small probability that the observed pattern arose by chance. Therefore, we can reject the null hypothesis. We can extract more information from the statistic if we save the \code{chisq.test(ladymat)} as an object:
+This provides a statistic and p-value indicating that there is a very small probability that the observed pattern arose by chance. Therefore, we can reject the null hypothesis. We can extract more information from the statistic if we save the \code{chisq.test(ladymat)} as an object:
 
 \begin{shaded}
 \begin{Schunk}
@@ -428,7 +429,7 @@ In the \boldblue{R} Markdown document, it is possible to quote statistics inline
 \normalsize 
 Create a short report in the \boldblue{R} Markdown document with an inline report of the test statistics and P-value. This can be done as follows:
 \begin{enumerate}
-\item Add a code chunk for loading and manipulating the data, and running the $\chi^{2}$ test.
+\item Add a code chunk for loading and manipulating the data above, and running the $\chi^{2}$ test.
 \item Edit the previous chunk options so that it does \textbf{not} print the code or results to the compiled document (hint: define \code{echo} and \code{results} in the chunk options).
 \item Write a few lines of text stating the hypothesis, the test statistic and interpretation. E.g.\\ \textit{The null hypothesis is... Ladybird morphs are not equally distributed in the two habitats (Chi squared = ..., df = ..., P = ...), with black morphs being more frequent in the ... habitat.}
 \item Add a code chunk to output the figure that illustrates the results of the $\chi^{2}$ test.
@@ -455,7 +456,7 @@ First, load the data:
 
 \begin{shaded}
 \begin{verbatim}
-sepals <- read.csv("../data/iris.edited.csv", header = T)
+sepals <- read.csv("data/iris.edited.csv", header = T)
 glimpse(sepals)
 \end{verbatim}
 
@@ -471,7 +472,7 @@ $ Sepal.Length <dbl> 7.0, 6.4, 6.9, 5.5, 6.5, 5.7, 6.3, 4.9, 6.6, 5.2, 5.0,...
 \end{shaded}
 
 
-The first step is to visualise the data. One approach is to use a boxplot, which is more visually appealing (but based on the median rather than the mean) - another is to use histograms. These can help us to assess if the means seem different between the two categories, and if the data is normally distributed with a similar variance. It can also provide an inidication of whether the null hypothesis can be accepted or rejected.
+The first step is to visualise the data. One approach is to use a boxplot, which is more visually appealing (but based on the median rather than the mean) - another is to use histograms. These can help us to assess if the means seem different between the two categories, and if the data is normally distributed with a similar variance. It can also provide an indication of whether the null hypothesis can be accepted or rejected.
 
 \begin{shaded}
 \begin{verbatim}
@@ -518,9 +519,9 @@ mean in group versicolor  mean in group virginica
 \end{Schunk}
 \end{shaded}
 
-The function has automatically used the Welch version of the t-test, which relaxes the assumption of equal variances - this is fine for the purposes of this practical (see Beckerman et al for a discussion of this in more detail). The output provides the \code{t}, \code{df} and \code{p-value} for the test, as well as the mean value in each of the two groups. The 95\% confidence interval shows the interval between the difference between the two means - if this overlapped 0, then we would retain the null hypothesis.\\
+The function has automatically used the Welch version of the t-test, which relaxes the assumption of equal variances - this is fine for the purposes of this practical (see Beckerman et al. for a discussion of this in more detail). The output provides the \code{t}, \code{df} and \code{p-value} for the test, as well as the mean value in each of the two groups. The 95\% confidence interval shows the interval between the difference between the two means - if this overlapped 0, then we would retain the null hypothesis.\\
 
-Therefore, given the output, we can reject the null hypothesis, and can conclude that \textit{I. virginica} has longer sepals than \textit{I. versicolor}.
+Therefore, given the output, we can reject the null hypothesis, and can conclude that \textit{I. virginica} has longer sepals than \textit{I. versicolor}. \\
 
 
 \fbox{\begin{minipage}{36em}
@@ -624,10 +625,10 @@ Before examining the output, it is important to check the assumptions of the lin
 \includegraphics{1_Stats_Course_Notes-knitr-020}
 \end{shaded}
 
-Generally these plots look good - although we have limited time to understand them in detail, we can quickly intepret them as follows:
+Generally these plots look good - although we have limited time to understand them in detail, we can quickly interpret them as follows:
 
 \begin{itemize}
-\item The \textbf{top left} plot determines if the line is an appropiate fit to the data. A relatively straight line is good - something humped would indicate that a non-linear relationship. 
+\item The \textbf{top left} plot determines if the line is an appropriate fit to the data. A relatively straight line is good - something humped would indicate that a non-linear relationship. 
 \item The \textbf{top right} plot shows if the residuals are normally distributed - they should line up on the straight dashed line.
 \item The \textbf{bottom left} plot is a check of equal variances; again, a lack of pattern (i.e. a horizontal line) shows the model is an appropriate fit.
 \item Finally, the \textbf{bottom right} panel shows the residuals vs. leverage, to determine some of the data points have a particularly strong influence on the regression line. A straight line and all data within the Cook's distance lines (these do not appear in this plot) indicate that this is not an issue in the data.
