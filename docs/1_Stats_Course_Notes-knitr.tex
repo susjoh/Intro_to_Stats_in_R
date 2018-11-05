@@ -63,9 +63,10 @@
 \title{Using R as a Research Tool.\\
 Part 2: R Markdown and Basic Statistics.}
 %------------------------------------------------------------
-\author{Dr Susan Johnston: \href{mailto:Susan.Johnston@ed.ac.uk}{Susan.Johnston@ed.ac.uk}  \\ \\
-Demonstrators \& Contributors: Gergana Daskalova, John Godlee. \\
-Hat-Tips to Kyle Dexter, The Coding Club and R4all.}
+
+\author{\small{Dr Susan Johnston: \href{mailto:Susan.Johnston@ed.ac.uk}{Susan.Johnston@ed.ac.uk}}  \\
+        \small{Demonstrators: Gergana Daskalova, John Godlee.} \\
+        \small{Based on information from The Coding Club and R4all.}}
 \date{}
 
 
@@ -282,9 +283,9 @@ glimpse(ladybirds)
 \begin{Soutput}
 Observations: 20
 Variables: 4
-$ Habitat      <fctr> Rural, Rural, Rural, Rural, Rural, Rural, Rural, Rura...
-$ Site         <fctr> R1, R2, R3, R4, R5, R1, R2, R3, R4, R5, U1, U2, U3, U...
-$ morph_colour <fctr> black, black, black, black, black, red, red, red, red...
+$ Habitat      <fct> Rural, Rural, Rural, Rural, Rural, Rural, Rural, Rural...
+$ Site         <fct> R1, R2, R3, R4, R5, R1, R2, R3, R4, R5, U1, U2, U3, U4...
+$ morph_colour <fct> black, black, black, black, black, red, red, red, red,...
 $ number       <int> 10, 3, 4, 7, 6, 15, 18, 9, 12, 16, 32, 25, 25, 17, 16,...
 \end{Soutput}
 \end{Schunk}
@@ -304,12 +305,12 @@ This can be done using the \code{dplyr} functions \code{group\_by()} and \code{s
 \begin{Soutput}
 # A tibble: 4 x 3
 # Groups:   Habitat [?]
-     Habitat morph_colour total.number
-      <fctr>       <fctr>        <int>
-1 Industrial        black          115
-2 Industrial          red           85
-3      Rural        black           30
-4      Rural          red           70
+  Habitat    morph_colour total.number
+  <fct>      <fct>               <int>
+1 Industrial black                 115
+2 Industrial red                    85
+3 Rural      black                  30
+4 Rural      red                    70
 \end{Soutput}
 \end{Schunk}
 \end{shaded}
@@ -343,7 +344,7 @@ There are two edits we can make to this to improve the visualisation: to add \co
 \includegraphics{1_Stats_Course_Notes-knitr-008}
 \end{shaded}
 
-Does it look like there is a trend here? What would you prediction be based on the figure?
+Does it look like there is a trend here? What would your prediction be based on the figure?
 
 \subsection{Test the hypothesis with \code{chisq.test()}.}
 
@@ -465,7 +466,7 @@ glimpse(sepals)
 \begin{Soutput}
 Observations: 100
 Variables: 2
-$ Species      <fctr> versicolor, versicolor, versicolor, versicolor, versi...
+$ Species      <fct> versicolor, versicolor, versicolor, versicolor, versic...
 $ Sepal.Length <dbl> 7.0, 6.4, 6.9, 5.5, 6.5, 5.7, 6.3, 4.9, 6.6, 5.2, 5.0,...
 \end{Soutput}
 \end{Schunk}

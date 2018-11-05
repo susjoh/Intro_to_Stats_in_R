@@ -68,9 +68,10 @@ opts_chunk$set(
 \title{Using R as a Research Tool.\\
 Part 2: R Markdown and Basic Statistics.}
 %------------------------------------------------------------
-\author{Dr Susan Johnston: \href{mailto:Susan.Johnston@ed.ac.uk}{Susan.Johnston@ed.ac.uk}  \\ \\
-Demonstrators \& Contributors: Gergana Daskalova, John Godlee. \\
-Hat-Tips to Kyle Dexter, The Coding Club and R4all.}
+
+\author{\small{Dr Susan Johnston: \href{mailto:Susan.Johnston@ed.ac.uk}{Susan.Johnston@ed.ac.uk}}  \\
+        \small{Demonstrators: Gergana Daskalova, John Godlee.} \\
+        \small{Based on information from The Coding Club and R4all.}}
 \date{}
 
 
@@ -343,7 +344,7 @@ ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
 @
 \end{shaded}
 
-Does it look like there is a trend here? What would you prediction be based on the figure?
+Does it look like there is a trend here? What would your prediction be based on the figure?
 
 \subsection{Test the hypothesis with \code{chisq.test()}.}
 
