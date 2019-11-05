@@ -65,12 +65,9 @@ Part 2: R Markdown and Basic Statistics.}
 %------------------------------------------------------------
 
 \author{\small{Dr Susan Johnston: \href{mailto:Susan.Johnston@ed.ac.uk}{Susan.Johnston@ed.ac.uk}}  \\
-        \small{Demonstrators: Gergana Daskalova, John Godlee.} \\
-        \small{Based on information from The Coding Club and R4all.}}
+        \small{Demonstrator: Gergana Daskalova.} \\
+        \small{5th November 2019}}
 \date{}
-
-
-
 
 
 
@@ -82,6 +79,8 @@ Part 2: R Markdown and Basic Statistics.}
 %-------------------------------------------
 \section {Introduction}
 %-------------------------------------------
+
+This tutorial is based on information from R4all: \url{http://r4all.org/} and Our Coding Club: \url{https://ourcodingclub.github.io/}. Data, code, answers and an \boldblue{R} Markdown Cheat Sheet is included in the github repository: \url{https://github.com/susjoh/Intro_to_Stats_in_R}. \\
 
 This practical will explore how to write reports in \boldblue{R} Markdown and how to conduct simple statistical tests in \boldblue{R}. By the end, you should be able to:
 
@@ -97,11 +96,9 @@ This practical will explore how to write reports in \boldblue{R} Markdown and ho
 \item 2-sample t-test with \code{t.test()}
 \item Linear regression with \code{lm()}
 
-
 \end{itemize}
 
 \end{itemize}
-Data, code, answers and an \boldblue{R} Markdown Cheat Sheet is included in the github repository: \url{https://github.com/susjoh/Intro_to_Stats_in_R}.
 
 
 %-------------------------------------------
@@ -109,19 +106,19 @@ Data, code, answers and an \boldblue{R} Markdown Cheat Sheet is included in the 
 %-------------------------------------------
 
 
-\boldblue{R} Markdown is a tool for writing reproducible reports in \boldblue{R}. It uses the \code{knitr} library by \href{https://yihui.name/knitr/}{Yihui Xie} to produce documents with embedded code and figures in HTML, Word and PDF format, and can also be used to create webpages and slideshows. 
+\boldblue{R} Markdown is a tool for writing reproducible reports in \boldblue{R}. It uses the \code{knitr} library by \href{https://yihui.name/knitr/}{Yihui Xie} to produce documents with embedded code and figures in HTML, Word and PDF format. It can also be used to create webpages and presentations. 
 
 \subsection{Creating an \boldblue{R} Markdown Document.}
 
-Open RStudio and create a new markdown document by going to \textbf{File > New File > R Markdown...}. In the window, name your document, select \textbf{HTML} and click \textbf{OK}. RStudio should automatically create a template as in Figure \ref{fig:MarkdownTemplate} (if not - it is saved in the file \texttt{R\_Markdown\_Template.Rmd)}. \\
+Open RStudio and create a new markdown document by going to \textbf{File > New File > R Markdown...}. In the window, name your document, select \textbf{HTML} and click \textbf{OK}. RStudio should automatically create a template as in Figure \ref{fig:MarkdownTemplate}. \\
 
 To render the document, click the button that says \code{Knit} (you may have to save it first). As you can see, it produces a formatted HTML document with embedded figures that reflect the text and code within the markdown file. Take some time to familiarise yourself with how the script matches to the output. \\
 
-A convenient feature of \boldblue{R} Markdown in RStudio is the \textbf{Show document outline} in the top right corner of the window. For very long scripts, adding \verb!####! or \verb!----! to a comment line will include that comment in the document outline. Try it out. It is possible to carry out basic formatting as well as adding headings, tables, lists and external figures. See Part 3 of the \boldblue{R} Markdown Cheat Sheet, which is included in the github folder. \\
+A convenient feature of \boldblue{R} Markdown in RStudio is the \textbf{Show document outline} in the top right corner of the window. For very long scripts, adding \verb!####! or \verb!----! to a comment line will include that comment in the document outline. Try it out. It is possible to carry out basic formatting as well as adding headings, tables, lists and external figures. For the very basics of Markdown, go to \textbf{Help > Markdown Quick Reference}. You can also access more detailed cheatsheets through \textbf{Help > Cheatsheets}.\\
 
 \begin{figure}[h]
 \centering 
-\includegraphics[width=0.8\textwidth]{figs/MarkdownTemplate.JPG}
+\includegraphics[width=1\textwidth]{figs/MarkdownTemplatev2.JPG}
 \caption{R Markdown Template.}
 \label{fig:MarkdownTemplate}
 \end{figure} 
@@ -137,7 +134,7 @@ A convenient feature of \boldblue{R} Markdown in RStudio is the \textbf{Show doc
 \texttt{---}\\
 \texttt{title:} ``\texttt{Introduction to Statistics in R}''\\
 \texttt{author:} ``\texttt{Your Name}''\\
-\texttt{date:} ``\texttt{28 November 2017}'' \\
+\texttt{date:} ``\texttt{05 November 2019}'' \\
 \texttt{output: html\_document} \\
 \texttt{---} \\
 
@@ -222,23 +219,26 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 \end{verbatim}
 \end{shaded}
 
-The second option will hide the code (\texttt{echo = F}) and code output (\texttt{results = "hide"}) but show the figure (dimensions specified with \texttt{fig.width} and \texttt{fig.height}). A full list of options are given in Figure \ref{fig:markdownrules}.
+The second option will hide the code (\texttt{echo = F}) and code output (\texttt{results = "hide"}) but show the figure (dimensions specified with \texttt{fig.width} and \texttt{fig.height}). Some other common options are given in here:
 
 \begin{figure}[h]
 \centering 
-\includegraphics[width=1\textwidth]{figs/markdownrules.jpg}
-\caption{R Markdown Code Instructions.}
+\includegraphics[width=1\textwidth]{figs/markdownrulesv2.jpg}
+%\caption{R Markdown Code Instructions.}
 \label{fig:markdownrules}
 \end{figure} 
 
+\vspace*{-1.5cm}
 
 \subsection{Important Points to Note.}
 
 \begin{itemize}
 
+\item Using R Markdown essentially opens a new R session to run all of the code within your \boldblue{.Rmd} document. Creating an object in a chunk means that it can be called in all subsequent chunks unless removed from the workspace.
+
 \item Code in \boldblue{R} Markdown chunks can be run in the console as in the previous practical. The default option is to show the code output inline in the document. Some people like this, others don't: to switch this function on and off, go to \textbf{Global options > R Markdown >Show output inline for all Markdown documents} and select your preferred setup.
 
-\item \boldblue{R} Markdown documents are not flexible to errors - the code must be error free, or it will not render.
+\item \boldblue{R} Markdown documents are \textbf{not} flexible to errors - the code must be error free, or it will not render.
 
 \item Want to learn more? More detailed information on this can be found at the Coding Club tutorial at \url{https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html}. \\
 
@@ -260,7 +260,7 @@ The second option will hide the code (\texttt{echo = F}) and code output (\textt
 \label{fig:StatisticsFlow}
 \end{figure} 
 
-In the interests of time, this practical will focus on the \textbf{how} rather than \textbf{why} we will do these tests. We highly recommend doing further reading in your own time, such as ``Getting Started with R'' (2nd Edition, 2017) by Beckerman, Childs and Petchey (\url{http://www.r4all.org}). Let's begin!
+In the interests of time, this practical will focus on the \textbf{how} rather than \textbf{why} we will do these tests. We highly recommend doing further reading in your own time, such as ``Getting Started with R'' (2nd Edition, 2017) by Beckerman, Childs and Petchey (\url{http://www.r4all.org}), which is available on PDF through the library service.
 
 
 
@@ -533,7 +533,7 @@ Therefore, given the output, we can reject the null hypothesis, and can conclude
 1. Create a short report in the \boldblue{R} Markdown document with an inline report as for Exercise
 2.\\
 
-2. Use the Cheat Sheet (Hint: Section 3) to add the image of \textit{Iris virginica} to the Markdown document (``\texttt{data/Irisvirginica.jpg}'')
+2. Use the Markdown Quick Reference in RStudio to add the image of \textit{Iris virginica} to the Markdown document (``\texttt{data/Irisvirginica.jpg}'')
 
 \end{minipage}}
 
@@ -707,7 +707,7 @@ Finally, we can add the slope to the plot using \code{stat\_smooth(method = "lm"
 
 1. Create a short report in the \boldblue{R} Markdown document with an inline report as for Exercises 2 and 3. Remember to report the slope, t-statistic, degrees of freedom and P-value.\\
 
-Hint: extracting values from the model can use indexing as visited in the DataCamp tutorial. The best approach is to create an object for the summary of lm.heights e.g. \code{summary.lm.heights <- summary(lm.heights)\$coefficients} and calling values based on the indices (e.g. the t-value will be \code{summary.lm.heights[2,3]}.
+Hint: extracting values from the model can use indexing as visited in the preparation tutorial for the previous session. The best approach is to create an object for the summary of lm.heights e.g. \code{summary.lm.heights <- summary(lm.heights)\$coefficients} and calling values based on the indices (e.g. the t-value will be \code{summary.lm.heights[2,3]}.
 \end{minipage}}
 
 
