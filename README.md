@@ -1,4 +1,7 @@
 # Intro_to_R
+
+**NB. THIS COURSE WILL UNDERGO AN OVERHAUL FOR 2020!**
+
 The repository contains information for Part 2 of the Introduction to R Course for the NERC E3 DTP at the University of Edinburgh.
 
 Part 1 of the current course: https://github.com/susjoh/Intro_to_R
