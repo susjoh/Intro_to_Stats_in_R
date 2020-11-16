@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Writing reports with R Markdown.}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Creating an R Markdown Document.}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Embedding code in R Markdown.}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Structuring an R Markdown document.}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Important Points to Note.}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Basic statistics.}{}% 7
+\BOOKMARK [1][-]{section.4}{Chi-squared \(2\) contingency table}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Plot the data}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Test the hypothesis with chisq.test\(\).}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Two-sample t-test.}{}% 11
+\BOOKMARK [1][-]{section.6}{Simple Linear regression.}{}% 12

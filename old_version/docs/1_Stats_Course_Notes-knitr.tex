@@ -65,8 +65,8 @@ Part 2: R Markdown and Basic Statistics.}
 %------------------------------------------------------------
 
 \author{\small{Dr Susan Johnston: \href{mailto:Susan.Johnston@ed.ac.uk}{Susan.Johnston@ed.ac.uk}}  \\
-        \small{Demonstrator: Gergana Daskalova.} \\
-        \small{5th November 2019}}
+        \small{Demonstrator: Lucy Peters.} \\
+        \small{17th November 2020}}
 \date{}
 
 
@@ -105,7 +105,6 @@ This practical will explore how to write reports in \boldblue{R} Markdown and ho
 \section {Writing reports with R Markdown.}
 %-------------------------------------------
 
-
 \boldblue{R} Markdown is a tool for writing reproducible reports in \boldblue{R}. It uses the \code{knitr} library by \href{https://yihui.name/knitr/}{Yihui Xie} to produce documents with embedded code and figures in HTML, Word and PDF format. It can also be used to create webpages and presentations. 
 
 \subsection{Creating an \boldblue{R} Markdown Document.}
@@ -134,7 +133,7 @@ A convenient feature of \boldblue{R} Markdown in RStudio is the \textbf{Show doc
 \texttt{---}\\
 \texttt{title:} ``\texttt{Introduction to Statistics in R}''\\
 \texttt{author:} ``\texttt{Your Name}''\\
-\texttt{date:} ``\texttt{05 November 2019}'' \\
+\texttt{date:} ``\texttt{17 November 2020}'' \\
 \texttt{output: html\_document} \\
 \texttt{---} \\
 
@@ -151,12 +150,12 @@ Code can be embedded into the document in two ways: \\
 \begin{shaded}
 \begin{verbatim}
 ```{r}
-head(iris)   # this is a dataset included in base R
+head(cars)   # this is a dataset included in base R
 ```
 \end{verbatim}
 \end{shaded}
 
-Code chunks can be named, e.g. \verb!```{r iris}! \\
+Code chunks can be named, e.g. \verb!```{r cars}! \\
 
 \textbf{Inline code:}
 \begin{shaded}
@@ -200,9 +199,9 @@ It can also control how results and figures are presented. Try \code{knit}ting:
 \begin{shaded}
 \begin{verbatim}
 ```{r}
-data(iris)
-str(iris)
-ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
+data(cars)
+str(cars)
+ggplot(cars, aes(x = speed, y = dist)) + geom_point()
 ```
 \end{verbatim}
 \end{shaded}
@@ -214,7 +213,7 @@ and then replacing it with the following, and \code{knit}ting again:
 ```{r echo = F, results = "hide", fig.width = 4, fig.height = 3}
 data(iris)
 str(iris)
-ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
+ggplot(cars, aes(x = speed, y = dist)) + geom_point()
 ```
 \end{verbatim}
 \end{shaded}
@@ -236,11 +235,11 @@ The second option will hide the code (\texttt{echo = F}) and code output (\textt
 
 \item Using R Markdown essentially opens a new R session to run all of the code within your \boldblue{.Rmd} document. Creating an object in a chunk means that it can be called in all subsequent chunks unless removed from the workspace.
 
-\item Code in \boldblue{R} Markdown chunks can be run in the console as in the previous practical. The default option is to show the code output inline in the document. Some people like this, others don't: to switch this function on and off, go to \textbf{Global options > R Markdown >Show output inline for all Markdown documents} and select your preferred setup.
+\item Code in \boldblue{R} Markdown chunks can be run in the console as in the previous practical. The default option is to show the code output inline in the document. Some people like this, others don't: to switch this function on and off, go to \textbf{Global options > R Markdown > Show output inline for all Markdown documents} and select your preferred setup.
 
 \item \boldblue{R} Markdown documents are \textbf{not} flexible to errors - the code must be error free, or it will not render.
 
-\item Want to learn more? More detailed information on this can be found at the Coding Club tutorial at \url{https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html}. \\
+\item Want to learn more? More detailed information on this can be found at the Coding Club tutorial at \url{https://ourcodingclub.github.io/tutorials/rmarkdown/}. \\
 
 \end{itemize}
 
