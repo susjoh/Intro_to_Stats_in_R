@@ -105,6 +105,7 @@ $(document).ready(function () {
 <!-- end tabsets -->
 
 
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 
 </head>
 
@@ -119,7 +120,7 @@ $(document).ready(function () {
 
 <div id="section-introduction" class="section level2">
 <h2>Introduction</h2>
-<p>This tutorial is based on information from <a href="http://r4all.org/">R4all</a> and <a href="https://ourcodingclub.github.io/">Our Coding Club</a>. Data, code, answers and an <strong>R</strong> Markdown Cheat Sheet is included in the github repository: <a href="https://github.com/susjoh/Intro_to_Stats_in_R" class="uri">https://github.com/susjoh/Intro_to_Stats_in_R</a>.</p>
+<p>This tutorial is based on <a href="http://r4all.org/">R4all</a> and <a href="https://ourcodingclub.github.io/">Our Coding Club</a>. Data, code, answers and an <strong>R</strong> Markdown Cheat Sheet is included in the github repository: <a href="https://github.com/susjoh/Intro_to_Stats_in_R" class="uri">https://github.com/susjoh/Intro_to_Stats_in_R</a>.</p>
 <p>This practical will explore how to write reports in <strong>R</strong> Markdown and how to conduct simple statistical tests. By the end, you should be able to:</p>
 <ul>
 <li>Write, embed and render code and results into an HTML document.</li>
@@ -130,59 +131,72 @@ $(document).ready(function () {
 <li>Linear regression with <code>lm()</code></li>
 </ul></li>
 </ul>
-<p>Click below to get started!</p>
+<p>Click below to get started.</p>
 </div>
 <div id="section-writing-reports-with-r-markdown." class="section level2">
 <h2>Writing reports with R Markdown.</h2>
-<p><strong>R</strong> Markdown is a tool for writing reproducible reports in <strong>R</strong>. It uses the <code>knitr</code> library by <a href="https://yihui.name/knitr/">Yihui Xie</a> to produce documents with embedded code and figures in HTML, Word and PDF format. It can also be used to create webpages and presentations. Some great examples of what can be achieved are shown <a href="https://r4ds.had.co.nz/r-markdown-formats.html">here</a>.</p>
+<p><strong>R</strong> Markdown is a tool for writing reproducible reports in <strong>R</strong>.</p>
+<p>It uses the <code>knitr</code> library by <a href="https://yihui.name/knitr/">Yihui Xie</a> to produce documents with embedded code and figures in HTML, Word and PDF format. It can also be used to create webpages and presentations.</p>
+<p>Some great examples of what can be achieved are shown <a href="https://r4ds.had.co.nz/r-markdown-formats.html">here</a>.</p>
 <div id="section-creating-an-r-markdown-document." class="section level3">
 <h3>Creating an <strong>R</strong> Markdown Document.</h3>
-<p>Open RStudio and create a new markdown document by going to <code>File &gt; New File &gt; R Markdown...</code>. In the window, name your document, select <code>HTML</code> and click <code>OK</code>. RStudio should automatically create a template as follows:</p>
-<p>To “render” the document, click the button that says <code>Knit</code> (you may have to save it first). You will see that it produces a formatted HTML document with embedded figures based on the text and code within the Markdown file. Take some time to familiarise yourself with how the script matches to the output.</p>
-<p>A convenient feature of <strong>R</strong> Markdown in RStudio is the <code>Show document outline</code> in the top right corner of the window pane. For very long scripts, adding <code>####</code> or <code>----</code> to a comment line (<code>#</code>) will include the comment in the document outline. Try it out. It is possible to carry out basic formatting as well as adding headings, tables, lists and external figures. For the very basics of Markdown, go to <code>Help &gt; Markdown Quick Reference</code>. You can also access very detailed cheatsheets through <code>Help &gt; Cheatsheets</code>.</p>
+<p>Open RStudio and create a new markdown document by going to: <code>File &gt; New File &gt; R Markdown...</code> In the window, name your document, select <code>HTML</code> and click <code>OK</code>. RStudio should automatically create a template of an example R Markdown document. Take a look.</p>
+<p>To “render” the script into a document, click <code>Knit</code> and save when prompted. You will see that it produces an HTML document with embedded figures, based on the text and code within the Markdown file.</p>
+<p>Take some time to familiarise yourself with how the script matches to the output.</p>
+</div>
+<div id="section-essential-tips" class="section level3">
+<h3>Essential Tips:</h3>
+<ul>
+<li><p>It is possible to carry out basic formatting as well as adding headings, tables, lists and external figures. For the very basics of Markdown, go to <code>Help &gt; Markdown Quick Reference</code>.</p></li>
+<li><p>You can access very detailed cheatsheets through <code>Help &gt; Cheatsheets</code>.</p></li>
+<li><p>You can render to MS Word or PDF (NB. the latter requires a TeX install on your machine).</p></li>
+<li><p>A convenient feature in RStudio is the <code>Show document outline</code> in the top right corner of the window pane.</p></li>
+</ul>
 </div>
 <div id="section-exercise-1" class="section level3">
 <h3><strong>Exercise 1</strong></h3>
-<p>Create a new <strong>R</strong> Markdown Script with the following header:</p>
+<p>Create a new, blank <strong>R</strong> Markdown Script with the following header:</p>
 <pre><code>---
 title: Introduction to Statistics in R
 author: Your Name
 date: 17 November 2020
 output: html_document 
 ---</code></pre>
-<p>Add some text &amp; familiarise yourself with basic formatting (e.g. <code>*italic*</code>, <code>**bold**</code>). Add headers for “Introduction”, “Chi-square test”, “Two-sample t-test” and “Linear regression”.</p>
+<p>Using <code>Help &gt; Markdown Quick Reference</code> to help you, add text with basic formatting (e.g. <code>*italic*</code>, <code>**bold**</code>). Add headers for “Introduction”, “Chi-square test”, “Two-sample t-test” and “Linear regression”.</p>
 <details>
 <p><summary><font color="blue"><strong>Click here for advanced exercises</strong></font></summary></p>
 <ul>
-<li>For this practical, create a slideshow instead of an HTML document.</li>
+<li>For this practical, create a slideshow instead of an HTML document, using <code>File &gt; New File &gt; R Markdown... &gt; Presentation</code></li>
 </ul>
 </details>
 </div>
 <div id="section-embedding-code-in-r-markdown." class="section level3">
 <h3>Embedding code in R Markdown.</h3>
-<p>Code can be embedded into the document in two ways. First, as a “chunk”:</p>
+<p>Code can be embedded into the document in two ways.</p>
+<p>First, it can be embedded as a <strong>“chunk”</strong>:</p>
 <pre><code>```{r}
 head(cars)   # this is a dataset included in base R
 ```</code></pre>
-<p>Code chunks can be named, e.g. <code>```{r cars}</code></p>
-<p>Second, as inline code:</p>
+<p>Second, it can be embedded as inline code:</p>
+<pre class="r"><code>Two plus two equals `r 2 + 2`.</code></pre>
 <p>which will print <code>Two plus two equals 4.</code>.</p>
 <p>As you have seen in the example, there can be several code chunks within a document. This is how it works:</p>
 <ol style="list-style-type: decimal">
-<li>Running the .Rmd document opens a new R session.</li>
-<li>Each chunk is run sequentially and saved in the working environment. Therefore libraries and new objects created in a chunk are in the workspace for all subsequent chunks. Imagine a normal script, but split into smaller pieces.</li>
-<li>When clicking <code>Knit</code>, RStudio assumes the directory containing the file is the working directory.</li>
-<li>All chunks in the document must be able to run without any errors, or the document will not render.</li>
+<li><p>Running the .Rmd document opens a new R session.</p></li>
+<li><p>Each chunk is run in order and saved in the environment: all libraries and new objects are saved in the workspace for all subsequent chunks.</p></li>
+<li><p>When clicking <code>Knit</code>, RStudio assumes the directory containing the file is the working directory.</p></li>
+<li><p>All chunks in the document must be able to run without any errors, or the document will not render.</p></li>
 </ol>
 </div>
 <div id="section-structuring-an-r-markdown-document." class="section level3">
 <h3>Structuring an R Markdown document.</h3>
-<p>The first chunk in your Markdown document is a good place to load libraries and data. In this practical, we will use the libraries <code>ggplot2</code> and <code>dplyr</code>. Put this chunk after the header of your document and click <code>Knit</code>:</p>
+<p>The first chunk in your Markdown document is a good place to load libraries and data.</p>
+<p>In this practical, we will use the libraries <code>ggplot2</code> and <code>dplyr</code>. Put this chunk after the header of your document and click <code>Knit</code>:</p>
 <pre><code>```{r}
 library(ggplot2)
 library(dplyr)
 ```</code></pre>
-<p>You may notice that this results in some unsightly code that is not relevant to the document. It is possible to control what is reported in the document using additional markers within the chunk description. For example, the following will allow the command to run invisibly:</p>
+<p>You may notice that this results in messages that is not relevant to the document. You can control what is reported using additional arguments within the chunk description. For example, the following will allow the command to run invisibly:</p>
 <pre><code>```{r echo = FALSE, message = FALSE, warning = FALSE}
 library(ggplot2)
 library(dplyr)
@@ -199,59 +213,64 @@ data(cars)
 str(cars)
 ggplot(cars, aes(x = speed, y = dist)) + geom_point()
 ```</code></pre>
-<p>The second option will hide the code (<code>echo = F</code>) and code output (<code>results = "hide"</code>) but show the figure (dimensions specified with <code>fig.width</code> and <code>fig.height</code>). Some common options are given here:</p>
+<p>The second option will hide the code (<code>echo = F</code>) and code output (<code>results = "hide"</code>) but show the figure (dimensions specified with <code>fig.width</code> and <code>fig.height</code>).</p>
+<p>Some common options are given here:</p>
 <ul>
-<li><p><code>eval = FALSE</code> means that the code will not be run and no results generated. This is useful for displaying example code or for disabling a large block of code.</p></li>
-<li><p><code>include = FALSE</code> runs the code but doesn’t show the code or results in the knitted document. Good for code you don’t want to clutter your report (e.g. loading libraries, data etc)</p></li>
+<li><p><code>eval = FALSE</code> means that the code will not be run and no results generated. This is useful for displaying example code or for disabling code.</p></li>
+<li><p><code>include = FALSE</code> runs the code but hides the code and results in the knitted document. Good for code you don’t want to clutter your report (e.g. loading libraries, data etc)</p></li>
 <li><p><code>echo = FALSE</code> hides the code but shows the results.</p></li>
 <li><p><code>message = FALSE</code> or <code>warning = FALSE</code> hides messages or warnings that might appear in the finished file.</p></li>
 <li><p><code>results = 'hide'</code> hides printed output; <code>fig.show = 'hide'</code> hides plots.</p></li>
-<li><p><code>error = TRUE</code> causes the render to continue even if code returns an error. NB. Use this with caution e.g. if you are trying to debug code or wish to show the error for some reason.</p></li>
+<li><p><code>error = TRUE</code> causes the render to continue even if code returns an error. NB. Use this with caution!</p></li>
 </ul>
 </div>
 <div id="section-other-points-to-note" class="section level3">
 <h3>Other Points to Note:</h3>
 <ul>
-<li><p>Code in <strong>R</strong> Markdown chunks can be run in the console as in the previous practical. The default option is to show the code output inline in the document. Some people like this, others don’t (including me): to switch this function on and off, go to <code>Global options &gt; R Markdown &gt; Show output inline for all Markdown documents</code> and select your preferred setup.</p></li>
-<li><p>A reminder that <strong>R</strong> Markdown documents are inflexible to errors - the code must be error free, or it will not render (usine <code>error = TRUE</code> with caution).</p></li>
+<li><p>Code in <strong>R</strong> Markdown chunks can be run in the console as in a normal script</p></li>
+<li><p>In RStudio, the default option is to show code output and figures in your script. To switch this function on and off, go to <code>Global options &gt; R Markdown &gt; Show output inline for all Markdown documents</code> and select your preferred setup.</p></li>
 <li><p>Want to learn more? More detailed information on this can be found at the <a href="https://ourcodingclub.github.io/tutorials/rmarkdown/">Coding Club tutorial</a> and the online <a href="https://r4ds.had.co.nz/r-markdown.html">R for Data Science</a> book.</p></li>
 </ul>
 </div>
 </div>
 <div id="section-basic-statistics." class="section level2">
 <h2>Basic statistics.</h2>
-<p>For the rest of the practical, it is expected that you create an <strong>R</strong> Markdown document that contains text, code, graphs and inline reporting of results. We will approach this by examining the data through visualisation, form our hypothesis, carry out the statistical test and then <code>Knit</code> this information into a document.</p>
-<p>In the interests of time, this practical will focus on the <em><strong>how</strong></em> rather than <em><strong>why</strong></em> we will do these tests. We highly recommend doing further reading in your own time, such as “Getting Started with R” (2nd Edition, 2017) by Beckerman, Childs and Petchey (<a href="\url%7Bhttp://www.r4all.org">link</a>), which is available on PDF through the Edinburgh University Library service.</p>
+<p>For the rest of the practical, create an <strong>R</strong> Markdown document that contains text, code, graphs and inline reporting of results.</p>
+<p>We will approach this by <strong>visualising</strong> the data, carry out a <strong>statistical test</strong> and then <code>Knit</code> this information into a <strong>report</strong></p>
+<p>To save time, this practical will focus on the <em><strong>how</strong></em> rather than <em><strong>why</strong></em> we will do these tests.</p>
+<p>We highly recommend doing further reading in your own time, such as “Getting Started with R” (2nd Edition, 2017) by Beckerman, Childs and Petchey (<a href="\url%7Bhttp://www.r4all.org">link</a>), which is available on PDF through the Edinburgh University Library service.</p>
 </div>
 <div id="section-chi-squared-chi2-contingency-table" class="section level2">
 <h2>Chi-squared (<span class="math inline">\(\chi^{2}\)</span>) contingency table</h2>
 <p>A <span class="math inline">\(\chi ^{2}\)</span> contingency table analyses count data, and looks at the association between two or more categorical variables. In this example, we will examine the differences in the frequency of red and black ladybirds (<em>Adalia bipunctata</em>) in rural and industrial habitats.</p>
-<p>Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds? The null hypothesis is that there is no association between ladybird colour morph and habitat type .</p>
+<p>Our question is: are dark morphs more likely to reside in dark (industrial) backgrounds?</p>
 <p>Load the data file <code>ladybirds.csv</code> into <strong>R</strong> using <code>read.csv()</code> and examine it using <code>glimpse()</code> from the <code>dplyr</code> package, or <code>head()</code> as before.</p>
 <pre class="r"><code>library(dplyr)
 
 ladybirds &lt;- read.csv(&quot;data/ladybirds.csv&quot;, header = T)
 glimpse(ladybirds)</code></pre>
-<p>There are multiple lines for each category, with the column number giving the count details. We ultimately want four numbers, corresponding to the 2 <span class="math inline">\(\times\)</span> 2 categories: red industrial, black industrial, red rural and black rural.</p>
+<p>There are multiple counts for each category. We ultimately want four numbers, corresponding to the 2 <span class="math inline">\(\times\)</span> 2 categories: <strong>red industrial, black industrial, red rural and black rural.</strong></p>
 <p>This can be done using the <code>dplyr</code> functions <code>group_by()</code> and <code>summarise()</code>.</p>
 <pre class="r"><code>totals &lt;- group_by(ladybirds, Habitat, morph_colour)
 totals &lt;- summarise(totals, total.number = sum(number))
-totals
-
-# You can also use the pipe %&gt;% to make this function a little smoother:
-
-totals &lt;- group_by(ladybirds, Habitat, morph_colour) %&gt;%
+totals</code></pre>
+<p>You can use the pipe <code>%&gt;%</code> to make this function smoother:</p>
+<pre class="r"><code>totals &lt;- group_by(ladybirds, Habitat, morph_colour) %&gt;%
           summarise(total.number = sum(number))
 totals</code></pre>
 <div id="section-plot-the-data" class="section level3">
 <h3>Plot the data</h3>
-<p>One visualisation for this type of data is a bar chart using <code>geom_col()</code> in <code>ggplot2</code>.</p>
+<p>This data is best visualised using a bar chart using <code>geom_col()</code> in <code>ggplot2</code>. Use <code>fill =</code> to group the bars by the different morph colours.</p>
 <pre class="r"><code>library(ggplot2)
 
 ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
   geom_col() </code></pre>
 <p><img src="Intro_to_Stats_in_R_files/figure-html/unnamed-chunk-5-1.png" width="480" /></p>
-<p>There are two edits we can make to this to improve the visualisation: to add <code>geom_col(position = "dodge")</code> to place bars side by side, and to use <code>scale_fill_manual()</code> to change the colours of the bars to black and red to match the colour of the morphs in real life:</p>
+<p>There are two edits we can make to this to improve the visualisation:</p>
+<ul>
+<li>Add <code>geom_col(position = "dodge")</code> to place bars side by side</li>
+<li>Use <code>scale_fill_manual()</code> to change the colours of the bars to black and red to match the colour of the morphs in real life:</li>
+</ul>
 <pre class="r"><code>ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
   geom_col(position = &quot;dodge&quot;) +
   scale_fill_manual(values = c(black = &quot;black&quot;, red = &quot;red&quot;))</code></pre>
@@ -260,11 +279,13 @@ ggplot(totals, aes(x = Habitat, y = total.number, fill = morph_colour)) +
 </div>
 <div id="section-test-the-hypothesis-with-chisq.test." class="section level3">
 <h3>Test the hypothesis with <code>chisq.test()</code>.</h3>
-<p>The <span class="math inline">\(\chi^{2}\)</span> is run using the function <code>chisq.test()</code>. As this is a 2 <span class="math inline">\(\times\)</span> 2 contingency test, we must convert the data into a table or matrix. Looking at the data <code>ladybirds</code>, a matrix can be made using the function <code>xtabs()</code>, which is similar to creating pivot table cross-tabulation in Excel:</p>
+<p>The <span class="math inline">\(\chi^{2}\)</span> is run using the function <code>chisq.test()</code>. As this is a 2 <span class="math inline">\(\times\)</span> 2 contingency test, we must convert the data into a table or matrix.</p>
+<p>A matrix can be made for <code>ladybirds</code> using the function <code>xtabs()</code>.</p>
 <pre class="r"><code>lady.mat &lt;- xtabs(number ~ Habitat + morph_colour, data = ladybirds)</code></pre>
 <p>Now run the test:</p>
 <pre class="r"><code>chisq.test(lady.mat)</code></pre>
-<p>This provides a statistic and p-value indicating that there is a very small probability that the observed pattern arose by chance. Therefore, we can reject the null hypothesis. We can extract more information from the statistic if we save the <code>chisq.test(ladymat)</code> as an object:</p>
+<p>This provides a statistic and p-value indicating that there is a very small probability that the observed pattern arose by chance.</p>
+<p>We can extract more information from the statistic if we save the <code>chisq.test(ladymat)</code> as an object:</p>
 <pre class="r"><code>lady.chisq &lt;- chisq.test(lady.mat)</code></pre>
 <p>Running <code>lady.chisq</code> gives the same output as before, but we can explore the object in detail using the <code>$</code> notation:</p>
 <pre class="r"><code>names(lady.chisq)
@@ -278,26 +299,30 @@ lady.chisq$p.value</code></pre>
 <h3><strong>Exercise 2.</strong></h3>
 <p>Create a short report in the <strong>R</strong> Markdown document with an inline report of the test statistics and P-value. This can be done as follows:</p>
 <ol style="list-style-type: decimal">
-<li><p>Add a code chunk for loading and manipulating the data above, and running the <span class="math inline">\(\chi^{2}\)</span> test.</p></li>
-<li><p>Edit the previous chunk options so that it does <strong>not</strong> print the code or results to the compiled document.</p>
+<li>Add a code chunk for loading and manipulating the data above, and running the <span class="math inline">\(\chi^{2}\)</span> test.</li>
+<li>Edit the previous chunk options so that it does <strong>not</strong> print the code or results to the compiled document.
 <details>
-<p><summary><font color="blue">Hint:</font></summary> Define <code>echo</code> and <code>results</code> in the chunk options.</p>
+<summary><font color="blue">Hint:</font></summary> Define <code>echo</code> and <code>results</code> in the chunk options.
 </details></li>
-<li><p>Write a few lines of text stating the hypothesis, the test statistic and interpretation, e.g.: &gt; The null hypothesis is… Ladybird morphs are not equally distributed in the two habitats (Chi squared = …, df = …, P = …), with black morphs being more frequent in the … habitat.</p></li>
-<li><p>Add a code chunk to output the figure that illustrates the results of the <span class="math inline">\(\chi^{2}\)</span> test.</p></li>
+<li>Write a few lines of text stating the test statistic and interpretation, e.g.:</li>
+</ol>
+<pre><code>Ladybird morphs are not equally distributed in the two habitats (Chi squared = ..., df = ..., P = ...), with black morphs being more frequent in the ... habitat.</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Add a code chunk to output the figure that illustrates the results of the <span class="math inline">\(\chi^{2}\)</span> test.</li>
 </ol>
 <details>
 <p><summary><font color="blue"><strong>Click here for advanced exercises</strong></font></summary></p>
 <ul>
 <li>Reduce the number of significant figures in the inline results.</li>
-<li>Fix the scientific notation in inline results.</li>
+<li>Fix the scientific notation in inline results to read as in a scientific paper.</li>
 </ul>
 </details>
 </div>
 </div>
 <div id="section-two-sample-t-test." class="section level2">
 <h2>Two-sample t-test.</h2>
-<p>A two-sample t-test is one of the most conceptually simple and commonly used hypothesis tests. It determines whether the mean of two groups of numeric values are significantly different from each other, or are due to random chance. Here, we will use data from two species of penguins, Adelie and Gentoo, to determine if their body mass is significantly different.</p>
+<p>A two-sample t-test is one of the most conceptually simple and commonly used hypothesis tests. It determines whether the mean of two groups of numeric values are significantly different from each other, or are due to random chance.</p>
+<p>Here, we will use data from two species of penguins, Adelie and Gentoo, to determine if their body mass is significantly different.</p>
 <p>This data is from the <code>palmerpenguins</code> package on CRAN. You can prepare the data for the rest of this practical as follows:</p>
 <pre class="r"><code># Run this once in your console.
 install.packages(&quot;palmerpenguins&quot;)  </code></pre>
@@ -307,19 +332,32 @@ subpenguin &lt;- filter(penguins, species %in% c(&quot;Adelie&quot;, &quot;Gento
 head(subpenguin)</code></pre>
 <p>And here are the penguins &lt;3</p>
 <p><img src="images/Penguins.png" /></p>
-<p>The t-test makes two assumptions about the data - that both groups are normally distributed and that the variances are equal in each category. For the interests of time, we will assume that both of these assumptions are met. (NB. These assumptions can be tested using <code>shapiro.test()</code> and <code>var.test()</code> on specific value vectors. If you would like to try this and need help, use the <code>?</code> command or ask the demonstrators).</p>
-<p>The first step is to visualise the data. One approach is to use a boxplot, which is more visually appealing (but based on the median rather than the mean) - another is to use histograms. These can help us to assess if the means seem different between the two categories, and if the data is normally distributed with a similar variance. It can also provide an indication of whether the null hypothesis can be accepted or rejected.</p>
-<pre class="r"><code>ggplot(subpenguin, aes(species, body_mass_g)) + geom_boxplot()</code></pre>
-<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_boxplot).</code></pre>
+<p>The t-test makes two assumptions about the data:</p>
+<ul>
+<li>Both groups are normally distributed;</li>
+<li>The variances are equal in each category.</li>
+</ul>
+<p>For the interests of time, we will assume that both of these assumptions are met.</p>
+<details>
+<p><summary><font color="blue"><strong>Read more on assumptions…</strong></font></summary></p>
+<p>NB. These assumptions can be tested using <code>shapiro.test()</code> and <code>var.test()</code> on specific value vectors. If you would like to try this and need help, use the <code>?</code> command or ask the demonstrators).</p>
+</details>
+<p>The first step is always to <strong>visualise the data</strong>. One approach is to use a boxplot with <code>geom_boxplot()</code>, which is more visually appealing (but is based on the median rather than the mean). Another is to use histograms with <code>geom_histogram()</code>.</p>
+<p>Both can help us to assess if the means seem different between the two categories, and if the data is normally distributed with a similar variance.</p>
+<pre class="r"><code># boxplot
+
+ggplot(subpenguin, aes(species, body_mass_g)) +
+  geom_boxplot()</code></pre>
 <p><img src="Intro_to_Stats_in_R_files/figure-html/unnamed-chunk-13-1.png" width="480" /></p>
 <pre class="r"><code># histogram with facet_wrap
 
 ggplot(subpenguin, aes(body_mass_g)) + 
   geom_histogram() + 
   facet_wrap(~species, ncol = 1)</code></pre>
-<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_bin).</code></pre>
 <p><img src="Intro_to_Stats_in_R_files/figure-html/unnamed-chunk-13-2.png" width="480" /></p>
-<p>To carry out the t-test, we will use the <code>t.test()</code> function. We can find out the details of the test using <code>?t.test</code>. The syntax requires a formula <code>body_mass_g ~ species</code> and the data frame (<code>data = subpenguin</code>). This should reflect the hypothesis - how does sepal length vary as a function of species?</p>
+<p>To carry out the t-test, we will use the <code>t.test()</code> function. We can find out the details of the test using <code>?t.test</code>.</p>
+<p>The syntax requires a formula <code>body_mass_g ~ species</code> and the data frame (<code>data = subpenguin</code>).</p>
+<p><strong><em>Q. How does body mass vary as a function of species in Adelie and Gentoo penguins?</em></strong></p>
 <pre class="r"><code>bm_test &lt;- t.test(body_mass_g ~ species, data = subpenguin)
 bm_test</code></pre>
 <pre><code>## 
@@ -333,13 +371,19 @@ bm_test</code></pre>
 ## sample estimates:
 ## mean in group Adelie mean in group Gentoo 
 ##             3700.662             5076.016</code></pre>
-<p>The function has automatically used the Welch version of the t-test, which relaxes the assumption of equal variances - this is fine for the purposes of this practical (see Beckerman et al. for a discussion of this in more detail). The output provides the <code>t</code>, <code>df</code> and <code>p-value</code> for the test, as well as the mean value in each of the two groups. The 95% confidence interval shows the interval between the difference between the two means - if this overlapped 0, then we would retain the null hypothesis.</p>
-<p>Therefore, given the output, we can reject the null hypothesis, and can conclude that Gentoo penguins are heavier than Adelie penguins.</p>
+<details>
+<summary><font color="blue"><strong>Note…</strong></font></summary> The function has automatically used the Welch version of the t-test, which relaxes the assumption of equal variances - this is fine for the purposes of this practical (see Beckerman et al. detailed discussion).<br>
+</details>
+<ul>
+<li>The output provides the <code>t</code>, <code>df</code> and <code>p-value</code> for the test, and the mean value in each of the two groups.</li>
+<li>The 95% confidence interval shows the interval between the difference between the two means - if this overlapped 0, then we would retain the null hypothesis of no difference between the species.</li>
+</ul>
+<p>Therefore, we can conclude that Gentoo penguins are heavier than Adelie penguins.</p>
 <div id="section-exercise-3." class="section level3">
 <h3><strong>Exercise 3.</strong></h3>
 <ol style="list-style-type: decimal">
-<li>Create a short report in the <strong>R</strong> Markdown document with an inline report as for Exercise</li>
-<li>Use the Markdown Quick Reference in RStudio to add the image of the penguins to the Markdown document (the path is <code>"images/Penguins.png"</code>)</li>
+<li><p>Create a short report in the <strong>R</strong> Markdown document with an inline report as for Exercise</p></li>
+<li><p>Use the Markdown Quick Reference in RStudio to add the image of the penguins to the Markdown document (you can find it in <code>"images/Penguins.png"</code>)</p></li>
 </ol>
 <details>
 <p><summary><font color="blue"><strong>Click here for advanced exercises</strong></font></summary></p>
@@ -353,18 +397,18 @@ bm_test</code></pre>
 <div id="section-simple-linear-regression." class="section level2">
 <h2>Simple Linear regression.</h2>
 <p>The last model we will tackle is a linear regression. This is the most basic of a class of models called “general linear models” which also includes multiple regression and ANOVA.</p>
-<p>For this, we will contiue to work on the penguin dataset, examining the correlation between body mass and flipper length.</p>
+<p>For this, we will continue to work on the penguin dataset, examining the relationship between body mass and flipper length. Both are continuous, numeric variables.</p>
 <pre class="r"><code>head(subpenguin)</code></pre>
-<p>Our question is whether flipper length varies relative to penguin body mass. Here, we will put body mass as the response (dependent) variable, whereas flipper length is the explanatory (independent) variable. Both are continuous, numeric variables.</p>
-<p>Plot the data:</p>
+<p>Our question is whether flipper length varies relative to penguin body mass in the observational dataset.</p>
+<p>As usual, the first step is to <strong>plot the data</strong>:</p>
 <pre class="r"><code>ggplot(subpenguin, aes(x = flipper_length_mm, y = body_mass_g)) + 
   geom_point() +
   labs(x = &quot;Flipper Length (mm)&quot;, y = &quot;Body Mass (g)&quot;)</code></pre>
-<pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 <p><img src="Intro_to_Stats_in_R_files/figure-html/unnamed-chunk-16-1.png" width="384" /></p>
-<p>Visually, it looks like there is a positive relationship between the two measures. We can test this using the function <code>lm()</code> to fit the model. The syntax is similar to that of the t-test above:</p>
+<p>Visually, there seems to be a positive relationship between the two measures. We can test this using the function <code>lm()</code> to fit the model.</p>
+<p>The syntax is very similar to that of the t-test above:</p>
 <pre class="r"><code>lm_test &lt;- lm(body_mass_g ~ flipper_length_mm, data = subpenguin)</code></pre>
-<p>Before examining the output, it is important to check the assumptions of the linear model. This can be done using the <code>autoplot()</code> function in <code>library(ggfortify)</code> to examine the model residuals (You may need to install this package using <code>install.packages("ggfortify")</code>)</p>
+<p>Before examining the output, it is important to check the assumptions of the linear model. This can be done using the <code>autoplot()</code> function in <code>library(ggfortify)</code> to examine the model residuals. (You may need to install this package using <code>install.packages("ggfortify")</code>)</p>
 <pre class="r"><code>library(ggfortify)
 autoplot(lm_test)</code></pre>
 <pre><code>## Warning: `arrange_()` is deprecated as of dplyr 0.7.0.
@@ -372,13 +416,13 @@ autoplot(lm_test)</code></pre>
 ## See vignette(&#39;programming&#39;) for more help
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
-<p><img src="Intro_to_Stats_in_R_files/figure-html/unnamed-chunk-18-1.png" width="624" /></p>
-<p>Generally these plots look good - although we have limited time to understand them in detail, we can quickly interpret them as follows:</p>
+<p><img src="Intro_to_Stats_in_R_files/figure-html/unnamed-chunk-18-1.png" width="576" /></p>
+<p>Generally these plots look good - we can quickly interpret them as follows:</p>
 <ul>
-<li>The <strong>top left</strong> plot determines if the line is an appropriate fit to the data. A relatively straight line is good - something humped would indicate that a non-linear relationship.</li>
-<li>The <strong>top right</strong> plot shows if the residuals are normally distributed - they should line up on the straight dashed line.</li>
-<li>The <strong>bottom left</strong> plot is a check of equal variances; again, a lack of pattern (i.e. a horizontal line) shows the model is an appropriate fit.</li>
-<li>Finally, the <strong>bottom right</strong> panel shows the residuals vs. leverage, to determine some of the data points have a particularly strong influence on the regression line. A straight line and all data within the Cook’s distance lines (these do not appear in this plot) indicate that this is not an issue in the data.</li>
+<li>The <strong>Residuals vs Fitted</strong> plot determines if the line is an appropriate fit to the data. A relatively straight line is good - something humped would indicate that a non-linear relationship.</li>
+<li>The <strong>Normal Q-Q</strong> plot shows if the residuals are normally distributed - they should line up on the straight dashed line.</li>
+<li>The <strong>Scale-Location</strong> plot is a check of equal variances; again, a lack of pattern (i.e. a horizontal line) shows the model is an appropriate fit.</li>
+<li>Finally, the <strong>Residuals vs Leverage</strong> panel determines if some of the data points have a particularly strong influence on the regression line. A straight line and all data within the Cook’s distance lines (these do not appear in this plot) indicate that this is not an issue in the data.</li>
 </ul>
 <p>Given that the data looks good, let’s examine the output form the statistical model:</p>
 <pre class="r"><code>lm_test</code></pre>
@@ -389,8 +433,8 @@ autoplot(lm_test)</code></pre>
 ## Coefficients:
 ##       (Intercept)  flipper_length_mm  
 ##          -5590.89              49.01</code></pre>
-<p>As you can see, calling the statistical model alone only provides us with two values - the model intercept and the slope. The slope is positive, and suggests that for for each unit increase in flipper length, there is an increase in body mass by ~49 grammes.</p>
-<p>However, calling this alone does not provide information on whether we can reject the null hypothesis. For this, we use the <code>summary()</code> function:</p>
+<p>As you can see, this only provides us with two values - the model intercept and the slope. The slope is positive, and suggests that for for each unit increase in flipper length, there is an increase in body mass by ~49 grammes.</p>
+<p>However, this does not provide information on the significance of this results. For this, we use the <code>summary()</code> function:</p>
 <pre class="r"><code>summary(lm_test)</code></pre>
 <pre><code>## 
 ## Call:
@@ -412,13 +456,11 @@ autoplot(lm_test)</code></pre>
 ## Multiple R-squared:  0.7784, Adjusted R-squared:  0.7776 
 ## F-statistic: 955.4 on 1 and 272 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>We can see here that the observed positive slope is highly significant (<code>P &lt;2e-16</code>).</p>
-<p>Finally, we can add the slope to the plot using `stat_smooth(method = “lm”):</p>
+<p>Finally, we can add the slope to the plot using <code>stat_smooth(method = "lm")</code>:</p>
 <pre class="r"><code>ggplot(subpenguin, aes(x = flipper_length_mm, y = body_mass_g)) + 
   geom_point() +
   stat_smooth(method = &quot;lm&quot;) +
   labs(x = &quot;Flipper Length (mm)&quot;, y = &quot;Body Mass (g)&quot;)</code></pre>
-<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 <p><img src="Intro_to_Stats_in_R_files/figure-html/unnamed-chunk-21-1.png" width="384" /></p>
 <div id="section-exercise-4." class="section level3">
 <h3>Exercise 4.</h3>
@@ -430,8 +472,8 @@ autoplot(lm_test)</code></pre>
 <p>Extracting values from the model can use indexing as visited in the preparation tutorial for the previous session. The best approach is to create an object for the summary of lm_test e.g. <code>summary.lm_test &lt;- summary(lm_test)$coefficients</code> and calling values based on the indices (e.g. the t-value will be <code>summary.lm_test[2,3]</code>.</p>
 </details>
 </div>
-<div id="section-concluding-remarks" class="section level3">
-<h3>Concluding Remarks</h3>
+<div id="section-extensions-of-the-linear-model." class="section level3">
+<h3>Extensions of the linear model.</h3>
 <p>The linear model will be central to your PhD, so of course this can be extended to a general linear model within <code>lm()</code> as so:</p>
 <pre class="r"><code>lm_test2 &lt;- lm(body_mass_g ~ flipper_length_mm + species, data = subpenguin)
 
@@ -460,15 +502,13 @@ summary(lm_test2)</code></pre>
   geom_point() +
   stat_smooth(method = &quot;lm&quot;) +
   labs(x = &quot;Flipper Length (mm)&quot;, y = &quot;Body Mass (g)&quot;)</code></pre>
-<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 <p><img src="Intro_to_Stats_in_R_files/figure-html/unnamed-chunk-22-1.png" width="384" /></p>
+<p>For more information on how to build models, go to the Modelling tutorials at <a href="https://ourcodingclub.github.io/tutorials">Our Coding Club</a>.</p>
 
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
 chunk <- "```"
 inline <- function(x = "") paste0("`` `r ", x, "` ``")
-
 knitr::opts_chunk$set( message=F, results = "hide")
 </script>
  
